@@ -818,5 +818,5 @@ function select_default_macro_book(reset)
     end
     
     -- Default macro set/book
-    set_macro_page(4, 16)
+    set_macro_page(1, 1)
 end

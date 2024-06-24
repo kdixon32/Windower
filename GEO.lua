@@ -134,7 +134,7 @@ indicolure:set('Indi-Haste')    -- Indi Spell Default     (when you first load l
 validateTextInformation()
 
 -- Optional. Swap to your geo macro sheet / book
-set_macros(1,5) -- Sheet, Book   
+set_macros(1,1) -- Sheet, Book   
     
 -- Setup your Gear Sets below:
 function get_sets()
