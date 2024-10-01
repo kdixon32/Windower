@@ -1,0 +1,1 @@
+input /ma Aquaveil <me>; wait 6; input /ma Crusade; wait 6; input /ma Phalanx <me>; wait 6; input /ma Cocoon <me>;

@@ -1,0 +1,1 @@
+input /ma Poison II <tid>; wait 3; input /ma Rasp <tid>; wait 3; input /ma Drown <tid>; wait 3; input /ma Frost <tid>; wait 3;

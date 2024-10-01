@@ -39,17 +39,18 @@ function init_gear_sets()
 
     -- Fast cast sets for spells
     sets.precast.FC = {
-		main="Iridal Staff",
+		main={ name="Grioavolr", augments={'"Fast Cast"+6','MP+5','Mag. Acc.+10','"Mag.Atk.Bns."+12',}},
 		sub="Vivid Strap",
 		ammo="Impatiens",
-		head="Vanya Hood",
+		head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
 		body="Inyanga Jubbah",
 		hands="Gende. Gages +1",
 		legs="Orvail Pants +1",
 		feet="Regal Pumps +1",
 		neck="Focus Collar",
-		waist="Olympus Sash",
+		waist="Embla Sash",
 		left_ear="Nourish. Earring +1",
+		right_ear="Loquac. Earring",
 		left_ring="Inyanga Ring",
 		right_ring="Windurstian Ring",
 		back={ name="Alaunus's Cape", augments={'MND+19','Eva.+10 /Mag. Eva.+10','Mag. Evasion+1','Enmity-1','Phys. dmg. taken-2%',}}
@@ -114,7 +115,7 @@ function init_gear_sets()
 	main="Iridal Staff",
     sub="Vivid Strap",
     ammo="Impatiens",
-    head="Vanya Hood",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Theo. Bliaut +1",
     hands="Theo. Mitts +1",
     legs="Miasmic Pants",
@@ -131,12 +132,12 @@ function init_gear_sets()
 	main="Iridal Staff",
     sub="Vivid Strap",
     ammo="Impatiens",
-    head="Vanya Hood",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Theo. Bliaut +1",
     hands="Theo. Mitts +1",
     legs="Miasmic Pants",
     feet="Inyan. Crackows +1",
-    neck="Focus Collar",
+    neck="Cleric's Torque",
     waist="Olympus Sash",
     left_ear="Nourish. Earring +1",
     left_ring="Inyanga Ring",
@@ -160,7 +161,7 @@ function init_gear_sets()
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
     sets.midcast['Enhancing Magic'] = {main="Beneficus",sub="Genbu's Shield",
         head="Umuthi Hat",neck="Colossus's Torque",
-        body="Manasa Chasuble",hands="Dynasty Mitts",
+        body="Manasa Chasuble",hands="Dynasty Mitts",ear2="Mimir Earring",
         back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons",feet="Orison Duckbills +2"}
 
     sets.midcast.Stoneskin = {
@@ -172,8 +173,8 @@ function init_gear_sets()
 
     sets.midcast.BarElement = {main="Beneficus",sub="Genbu's Shield",
         head="Orison Cap +2",neck="Colossus's Torque",
-        body="Orison Bliaud +2",hands="Orison Mitts +2",
-        back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons",feet="Orison Duckbills +2"}
+        body="Orison Bliaud +2",hands="Orison Mitts +2", ear2="Mimir Earring",
+        back="Mending Cape",waist="Embla Sash",legs="Piety Pantaloons",feet="Orison Duckbills +2"}
 
     sets.midcast.Regen = {main="Bolelabunga",sub="Genbu's Shield",
         body="Piety Briault",hands="Orison Mitts +2",
@@ -219,13 +220,13 @@ function init_gear_sets()
 	main="Iridal Staff",
     sub="Vivid Strap",
     ammo="Impatiens",
-    head="Vanya Hood",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Theo. Bliaut +1",
     hands="Theo. Mitts +1",
     legs="Miasmic Pants",
     feet="Inyan. Crackows +1",
-    neck="Focus Collar",
-    waist="Olympus Sash",
+    neck="Cleric's Torque",
+    waist="Embla Sash",
     left_ear="Nourish. Earring +1",
     left_ring="Inyanga Ring",
     right_ring="Windurstian Ring",

@@ -9,6 +9,8 @@ console_screendir screenshots
 lua load whereisdi
 lua load SendAllTarget
 lua load superwarp
+lua load enemybar2
+lua load xivparty
 
 bind f12 showfps
 bind sysrq screenshot jpg hide
@@ -16,31 +18,33 @@ bind ^v paste
 
 bind numlock send @others /follow Roxion
 bind !numlock send Aluber /follow Roxion; send Keldeo /follow Roxion; send Ecclesia /follow Roxion;
-bind !enter sat youattack Aluber; sat youattack Keldeo; send Bonkugon /pet Assault <tid>
+bind !enter sat youattack Roxion; sat youattack Aluber; sat youattack Keldeo; send Bonkugon /pet Assault <tid>; wait 1;
 bind ^enter sat allattack; wait 1; send Bonkugon /pet Assault <tid>; send Roxion /pet Deploy <tid>
-bind !numlock send @all exec unfol
+bind ^numlock send @all exec unfol
 bind !^p send Roxion /pcmd add Ecclesia; wait 2; send Roxion /pcmd add Bonkugon; wait 2; send Roxion /pcmd add Apollousa; wait 2; send Roxion /pcmd add Keldeo; wait 2; send Roxion /pcmd add Aluber
 
 bind %m send Roxion /mount Fenrir; send Bonkugon /mount Fenrir; send Ecclesia /mount Ixion; send Apollousa /mount Byakko; send Keldeo /mount Byakko; send Aluber /mount Byakko;
 bind ~%m send @all send @all /dismount
 
-bind !numpad2 send Ecclesia /ma Stone IV <tid>; send Keldeo /ma Stone III <tid>; send Bonkugon /pet Heavenly Strike <tid>; send Bonkugon /pet Geocrush <tid>; send Bonkugon /pet Grand Fall <tid> 
-bind ^numpad2 send Ecclesia /ma Stone V <tid>; send Keldeo /ma Stone III <tid>; send Bonkugon /pet Heavenly Striket <tid>; send Bonkugon /pet Geocrush <tid>; send Bonkugon /pet Grand Fall <tid> 
-bind !numpad3 send Ecclesia /ma Water IV <tid>; send Keldeo /ma Water III <tid>; send Bonkugon /pet Heavenly Strike <tid>; send Bonkugon /pet Geocrush <tid>; send Bonkugon /pet Grand Fall <tid>
-bind ^numpad3 send Ecclesia /ma Water V <tid>; send Keldeo /ma Water III <tid>; send Bonkugon /pet Heavenly Strike <tid>; send Bonkugon /pet Geocrush <tid>; send Bonkugon /pet Grand Fall <tid> 
-bind !numpad4 send Ecclesia /ma Aero IV <tid>; send Keldeo /ma Aero III <tid>; send Bonkugon /pet Meteor Strike <tid>; send Bonkugon /pet Holy Mist <tid>; send Bonkugon /pet Thunderstorm <tid>; send Bonkugon /pet Wind Blade <tid>
-bind ^numpad4 send Ecclesia /ma Aero V <tid>; send Keldeo /ma Aero III <tid>; send Bonkugon /pet Meteor Strike <tid>; send Bonkugon /pet Holy Mist <tid>; send Bonkugon /pet Thunderstorm <tid>; send Bonkugon /pet Wind Blade <tid>
-bind !numpad5 send Ecclesia /ma Fire IV <tid>; send Keldeo /ma Fire III <tid>; send Bonkugon /pet Meteor Strike <tid>; send Bonkugon /pet Holy Mist <tid>; send Bonkugon /pet Thunderstorm <tid>; send Bonkugon /pet Wind Blade <tid>
-bind ^numpad5 send Ecclesia /ma Fire V <tid>; send Keldeo /ma Fire III <tid>; send Bonkugon /pet Meteor Strike <tid>; send Bonkugon /pet Holy Mist <tid>; send Bonkugon /pet Thunderstorm <tid>; send Bonkugon /pet Wind Blade <tid>
-bind !numpad6 send Ecclesia /ma Blizzard IV <tid>; send Keldeo /ma Blizzard III <tid>; send Bonkugon /pet Heavenly Strike <tid>; send Bonkugon /pet Geocrush <tid>; send Bonkugon /pet Grand Fall <tid>
-bind ^numpad6 send Ecclesia /ma Blizzard V <tid>; send Keldeo /ma Blizzard III <tid>; send Bonkugon /pet Heavenly Strike <tid>; send Bonkugon /pet Geocrush <tid>; send Bonkugon /pet Grand Fall <tid>
-bind !numpad7 send Ecclesia /ma Thunder IV <tid>; send Keldeo /ma Thunder III <tid>; send Bonkugon /pet Meteor Strike <tid>; send Bonkugon /pet Thunderstorm <tid>; send Bonkugon /pet Wind Blade <tid> 
-bind ^numpad7 send Ecclesia /ma Thunder V <tid>; send Keldeo /ma Thunder III <tid>; send Bonkugon /pet Meteor Strike <tid>; send Bonkugon /pet Thunderstorm <tid>; send Bonkugon /pet Wind Blade <tid> 
+bind !numpad2 send Ecclesia /ma Stone IV <tid>; send Keldeo /ma Stone III <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind ^numpad2 send Ecclesia /ma Stone V <tid>; send Keldeo /ma Stone IV <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind !numpad3 send Ecclesia /ma Water IV <tid>; send Keldeo /ma Water III <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind ^numpad3 send Ecclesia /ma Water V <tid>; send Keldeo /ma Water IV <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind !numpad4 send Ecclesia /ma Aero IV <tid>; send Keldeo /ma Aero III <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind ^numpad4 send Ecclesia /ma Aero V <tid>; send Keldeo /ma Aero IV <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind !numpad5 send Ecclesia /ma Fire IV <tid>; send Keldeo /ma Fire III <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind ^numpad5 send Ecclesia /ma Fire V <tid>; send Keldeo /ma Fire IV <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind !numpad6 send Ecclesia /ma Blizzard IV <tid>; send Keldeo /ma Blizzard III <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind ^numpad6 send Ecclesia /ma Blizzard V <tid>; send Keldeo /ma Blizzard IV <tid>; send Bonkugon //gs c pact bp75 <tid>
+bind !numpad7 send Ecclesia /ma Thunder IV <tid>; send Keldeo /ma Thunder III <tid>; send Bonkugon //gs c pact bp75 <tid> 
+bind ^numpad7 send Ecclesia /ma Thunder V <tid>; send Keldeo /ma Thunder IV <tid>; send Bonkugon //gs c pact bp75 <tid> 
 
-bind ~numpad0 send Bonkugon /pet Tidal Roar <tid>; send Bonkugon /pet Diamond Storm <tid>;send Bonkugon /pet Lunar Roar <tid>; send Bonkugon Shock Squall <tid>;
-bind ~numpad1 send Bonkugon /pet Hastega II <me>; send Bonkugon /pet Ecliptic Growl <me>; send Bonkugon /pet Crimson Howl <me>; send Bonkugon /pet Spring Water <tid>; send Bonkugon /pet Earthen Armor <me>
+bind ~numpad0 send Ecclesia /ma Sleepga <tid>; send Bonkugon //gs c pact sleep 
+bind ~numpad1 send Bonkugon gs c pact buffOffense
+bind ~numpad2 send Bonkugon gs c pact buffDefense
+bind ~numpad3 send Bonkugon gs c pact curaga 
+bind ~numpad4 send Bonkugon gs c pact buffSpecial 
 
-bind %[ send Ecclesia /ma Sleepga <tid>; send Bonkugon /pet Sleepga <tid>;
 
 bind ~%1 send Bonkugon /pet release <me>
 bind ~%2 send Bonkugon /ma Titan <me>

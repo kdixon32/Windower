@@ -158,7 +158,7 @@ function init_gear_sets()
     sets.precast.BloodPactWard = {
 	    main="Espiritus",
 		sub="Vox Grip",
-		ammo="Eminent Sachet",
+		ammo="Seraphicaller",
 		head="Convoker's Horn",
 		body="Con. Doublet +1",
 		hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -166,7 +166,7 @@ function init_gear_sets()
 		feet="Apogee Pumps +1",
 		neck="Caller's Pendant",
 		waist="Jaq'ij Sash",
-		left_ear="Gifted Earring",
+		left_ear="Lodurr Earring",
 		right_ear="Gelos Earring",
 		left_ring="Fervor Ring",
 		right_ring="Evoker's Ring",
@@ -180,8 +180,8 @@ function init_gear_sets()
     sets.precast.FC = {
     main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
     sub="Vox Grip",
-    ammo="Eminent Sachet",
-    head="Convoker's Horn",
+    ammo="Seraphicaller",
+    head="Amalric Coif",
     body="Inyanga Jubbah",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
@@ -189,6 +189,7 @@ function init_gear_sets()
     neck="Caller's Pendant",
     waist="Klouskap Sash",
     left_ear="Gifted Earring",
+	right_ear="Loquac. Earring",
     left_ring="Varar Ring",
     right_ring="Varar Ring",
     back="Swith Cape"}
@@ -241,7 +242,7 @@ function init_gear_sets()
     
     sets.midcast.Pet.BloodPactWard = {    main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
     sub="Elan Strap",
-    ammo="Eminent Sachet",
+    ammo="Seraphicaller",
     head="Convoker's Horn",
     body="Con. Doublet +1",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -249,14 +250,14 @@ function init_gear_sets()
     feet="Apogee Pumps +1",
     neck="Caller's Pendant",
     waist="Jaq'ij Sash",
-    left_ear="Gifted Earring",
+    left_ear="Lodurr Earring",
     left_ring="Fervor Ring",
     right_ring="Evoker's Ring",
     back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+2','Pet: Damage taken -1%',}}}
 
     sets.midcast.Pet.DebuffBloodPactWard = {    main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
     sub="Elan Strap",
-    ammo="Eminent Sachet",
+    ammo="Seraphicaller",
     head="Convoker's Horn",
     body="Con. Doublet +1",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -272,9 +273,9 @@ function init_gear_sets()
     sets.midcast.Pet.DebuffBloodPactWard.Acc = sets.midcast.Pet.DebuffBloodPactWard
     
     sets.midcast.Pet.PhysicalBloodPactRage = {    
-	main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
+	main={ name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Elan Strap",
-    ammo="Eminent Sachet",
+    ammo="Seraphicaller",
     head="Convoker's Horn",
     body="Con. Doublet +1",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -292,7 +293,7 @@ function init_gear_sets()
     sets.midcast.Pet.MagicalBloodPactRage = {    
 	main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
     sub="Elan Strap",
-    ammo="Eminent Sachet",
+    ammo="Seraphicaller",
     head="Convoker's Horn",
     body="Con. Doublet +1",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -328,7 +329,8 @@ function init_gear_sets()
         back="Pahtli Cape",waist="Austerity Belt",legs="Nares Trews",feet="Chelona Boots +1"}
     
     -- Idle sets
-    sets.idle = {main="Bolelabunga",sub="Genbu's Shield",ammo="Seraphicaller",
+    sets.idle = {main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
+	sub="Genbu's Shield",ammo="Seraphicaller",
         head="Convoker's Horn",neck="Wiglen Gorget",ear1="Gifted Earring",ear2="Loquacious Earring",
         body="Hagondes Coat",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Sangoma Ring",
         back="Umbra Cape",waist="Fucho-no-Obi",legs="Nares Trews",feet="Herald's Gaiters"}
@@ -359,9 +361,9 @@ function init_gear_sets()
     -- Can make due without either the head or the body, and use +refresh items in those slots.
     
     sets.idle.Avatar = {    
-	main="Gridarvor",
+	main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
-    ammo="Eminent Sachet",
+    ammo="Seraphicaller",
     head="Convoker's Horn",
     body="Apogee Dalmatica",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
@@ -374,7 +376,9 @@ function init_gear_sets()
     right_ring="Evoker's Ring",
     back="Campestres's Cape"}
 
-    sets.idle.PDT.Avatar = {main="Gridarvor",sub="Achaq Grip",ammo="Seraphicaller",
+    sets.idle.PDT.Avatar = {main ={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
+	sub="Achaq Grip",
+	ammo="Seraphicaller",
         head="Convoker's Horn",neck="Caller's Pendant",ear1="Gifted Earring",ear2="Loquacious Earring",
         body="Hagondes Coat",hands="Regimen Mittens",ring1="Evoker's Ring",ring2="Defending Ring",
         back="Conveyance Cape",waist="Fucho-no-Obi",legs="Hagondes Pants",feet="Convoker's Pigaches"}
