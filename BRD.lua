@@ -89,12 +89,12 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    head="Fili Calot",
-    body="Inyanga Jubbah",
+    head="Fili Calot +1",
+    body="Inyanga Jubbah +1",
     hands="Fili Manchettes",
     legs="Kaykaus Tights",
-    feet="Brioso Slippers +1",
-    neck="Aoidos' Matinee",
+    feet="Coalrake Sabots",
+    neck="Fili' Matinee",
     waist="Embla Sash",
     right_ear="Loquac. Earring"}
 
@@ -106,12 +106,12 @@ function init_gear_sets()
 
     sets.precast.FC.BardSong = {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
     sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-    head="Fili Calot",
-    body="Inyanga Jubbah",
+    head="Fili Calot +1",
+    body="Inyanga Jubbah +1",
     hands="Fili Manchettes",
     legs="Kaykaus Tights",
-    feet="Brioso Slippers +1",
-    neck="Aoidos' Matinee",
+    feet="Coalrake Sabots",
+    neck="Fili' Matinee",
     waist="Embla Sash",
     right_ear="Loquac. Earring"}
 
@@ -121,7 +121,7 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     
     sets.precast.JA.Nightingale = {feet="Bihu Slippers"}
-    sets.precast.JA.Troubadour = {body="Bihu Justaucorps"}
+    sets.precast.JA.Troubadour = {body="Bihu Justaucorps+2"}
     sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions"}
 
     -- Waltz set (chr and vit)
@@ -135,17 +135,18 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
 	head={ name="Lustratio Cap", augments={'Accuracy+15','DEX+5','Crit. hit rate+2%',}},
-    body="Ayanmo Corazza +1",
+    body="Bihu Justaucorps +2",
     hands={ name="Lustratio Mittens", augments={'Attack+15','STR+5','"Dbl.Atk."+2',}},
-    legs="Aya. Cosciales +1",
+    legs="Aya. Cosciales +2",
     feet={ name="Lustratio Leggings", augments={'HP+50','STR+10','DEX+10',}},
     neck="Soil Gorget",
     waist="Eschan Stone",
     left_ear="Brutal Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-    left_ring="Oneiros Ring",
-    right_ring="Rajas Ring",
-    back="Pahtli Cape"}
+    left_ring="Chirich Ring",
+    right_ring="Chirich Ring",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-2%',}}
+	}
     
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS)
@@ -164,31 +165,29 @@ function init_gear_sets()
         back="Swith Cape +1",waist="Goading Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
         
     -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
-    sets.midcast.Ballad = {legs="Aoidos' Rhing. +2"}
+    sets.midcast.Ballad = {legs="Fili' Rhing. +2"}
     sets.midcast.Lullaby = {hands="Brioso Cuffs"}
-    sets.midcast.Madrigal = {head="Aoidos' Calot +2"}
-    sets.midcast.March = {hands="Aoidos' Manchettes +2"}
-    sets.midcast.Minuet = {body="Aoidos' Hongreline +2"}
+    sets.midcast.Madrigal = {head="Fili Calot +1"}
+    sets.midcast.March = {hands="Fili Manchettes"}
+    sets.midcast.Minuet = {body="Fili Hongreline"}
     sets.midcast.Minne = {}
     sets.midcast.Paeon = {head="Brioso Roundlet +1"}
-    sets.midcast.Carol = {head="Aoidos' Calot +2",
-        body="Aoidos' Hongreline +2",hands="Aoidos' Manchettes +2",
-        legs="Aoidos' Rhing. +2",feet="Aoidos' Cothrn. +2"}
-    sets.midcast["Sentinel's Scherzo"] = {feet="Aoidos' Cothrn. +2"}
-    sets.midcast['Magic Finale'] = {neck="Wind Torque",waist="Corvax Sash",legs="Aoidos' Rhing. +2"}
+    sets.midcast.Carol = {head="Fili' Calot +1",
+        body="Fili' Hongreline +2",hands="Fili' Manchettes +2",
+        legs="Fili' Rhing. +2",feet="Fili' Cothrn. +2"}
+    sets.midcast["Sentinel's Scherzo"] = {feet="Fili' Cothrn. +2"}
+    sets.midcast['Magic Finale'] = {neck="Wind Torque",waist="Corvax Sash",legs="Fili' Rhing. +2"}
 
     sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
     
 
     -- For song buffs (duration and AF3 set bonus)
     sets.midcast.SongEffect = { 
-		main={name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-		sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
 		range="Gjallarhorn",
-		head="Fili Calot",
+		head="Fili Calot +1",
 		body="Fili Hongreline",
 		hands="Fili Manchettes",
-		legs="Aya. Cosciales +1",
+		legs="Inyanga Shalwar +2",
 		feet="Brioso Slippers +1",
         neck="Moonbow Whistle",
 		ear2="Loquacious Earring"}
@@ -197,8 +196,8 @@ function init_gear_sets()
     sets.midcast.SongDebuff = {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
 		sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
 		range="Gjallarhorn",
-        head="Brioso Roundlet +1",neck="Aoidos' Matinee",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Aoidos' Hongreline +2",hands="Aoidos' Manchettes +2",ring1="Prolix Ring",ring2="Sangoma Ring",
+        head="Brioso Roundlet +1",neck="Fili' Matinee",ear1="Psystorm Earring",ear2="Lifestorm Earring",
+        body="Fili' Hongreline +2",hands="Fili' Manchettes +2",ring1="Prolix Ring",ring2="Sangoma Ring",
         back="Kumbira Cape",waist="Goading Belt",legs="Marduk's Shalwar +1",feet="Brioso Slippers +1"}
 
     -- For song debuffs (accuracy primary, duration secondary)
@@ -206,13 +205,13 @@ function init_gear_sets()
 		sub={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
 		range="Gjallarhorn",
         head="Brioso Roundlet +1",neck="Wind Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Brioso Justaucorps +1",hands="Aoidos' Manchettes +2",ring1="Prolix Ring",ring2="Sangoma Ring",
+        body="Brioso Justaucorps +1",hands="Fili' Manchettes +2",ring1="Prolix Ring",ring2="Sangoma Ring",
         back="Kumbira Cape",waist="Demonry Sash",legs="Brioso Cannions +1",feet="Bokwus Boots"}
 
     -- Song-specific recast reduction
     sets.midcast.SongRecast = {ear2="Loquacious Earring",
         ring1="Prolix Ring",
-        back="Harmony Cape",waist="Corvax Sash",legs="Aoidos' Rhing. +2"}
+        back="Harmony Cape",waist="Corvax Sash",legs="Fili' Rhing. +2"}
 
     --sets.midcast.Daurdabla = set_combine(sets.midcast.FastRecast, sets.midcast.SongRecast, {range=info.ExtraSongInstrument})
 
@@ -222,7 +221,7 @@ function init_gear_sets()
     -- Dummy song with Daurdabla; minimize duration to make it easy to overwrite.
     sets.midcast.DaurdablaDummy = {main="Izhiikoh",range=info.ExtraSongInstrument,
         head="Nahtirah Hat",neck="Wind Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Brioso Justaucorps +1",hands="Aoidos' Manchettes +2",ring1="Prolix Ring",ring2="Sangoma Ring",
+        body="Brioso Justaucorps +1",hands="Fili' Manchettes +2",ring1="Prolix Ring",ring2="Sangoma Ring",
         back="Swith Cape +1",waist="Goading Belt",legs="Gendewitha Spats",feet="Bokwus Boots"}
 
     -- Other general spells and classes.
@@ -254,22 +253,22 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {main=gear.Staff.PDT,range="Oneiros Harp",
         head="Gendewitha Caubeen",neck="Wiglen Gorget",ear1="Bloodgem Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Paguroidea Ring",ring2="Sangoma Ring",
-        back="Umbra Cape",waist="Flume Belt",legs="Nares Trews",feet="Aoidos' Cothurnes +2"}
+        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Chirich Ring",ring2="Chirich Ring",
+        back="Umbra Cape",waist="Flume Belt",legs="Nares Trews",feet="Fili' Cothurnes +2"}
 
     sets.idle.PDT = {main=gear.Staff.PDT,range="Oneiros Harp",
         head="Gendewitha Caubeen",neck="Wiglen Gorget",ear1="Bloodgem Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Defending Ring",ring2="Sangoma Ring",
-        back="Umbra Cape",waist="Flume Belt",legs="Gendewitha Spats",feet="Aoidos' Cothurnes +2"}
+        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Chirich Ring",ring2="Chirich Ring",
+        back="Umbra Cape",waist="Flume Belt",legs="Gendewitha Spats",feet="Fili' Cothurnes +2"}
 
     sets.idle.Town = {main=gear.Staff.PDT,range="Oneiros Harp",
         head="Gendewitha Caubeen",neck="Wiglen Gorget",ear1="Bloodgem Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Paguroidea Ring",ring2="Sangoma Ring",
-        back="Umbra Cape",waist="Flume Belt",legs="Nares Trews",feet="Aoidos' Cothurnes +2"}
+        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Chirich Ring",ring2="Chirich Ring",
+        back="Umbra Cape",waist="Flume Belt",legs="Nares Trews",feet="Fili' Cothurnes +2"}
     
     sets.idle.Weak = {main=gear.Staff.PDT,range="Oneiros Harp",
         head="Gendewitha Caubeen",neck="Twilight Torque",ear1="Bloodgem Earring",
-        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Defending Ring",ring2="Sangoma Ring",
+        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Chirich Ring",ring2="Chirich Ring",
         back="Umbra Cape",waist="Flume Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
     
     
@@ -285,7 +284,7 @@ function init_gear_sets()
         body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Defending Ring",ring2="Shadow Ring",
         back="Engulfer Cape",waist="Flume Belt",legs="Bihu Cannions",feet="Gendewitha Galoshes"}
 
-    sets.Kiting = {feet="Aoidos' Cothurnes +2"}
+    sets.Kiting = {feet="Fili' Cothurnes +2"}
 
     sets.latent_refresh = {waist="Fucho-no-obi"}
 
@@ -298,59 +297,59 @@ function init_gear_sets()
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-	main={ name="Skinflayer", augments={'"Store TP"+4','STR+3','Accuracy+6','Attack+24','DMG:+6',}},
-    sub="Sangoma",
-    range={ name="Pyf Harp", augments={'String instrument skill +4',}},
-    head="Aya. Zucchetto +1",
-    body="Ayanmo Corazza +1",
-    hands="Aya. Manopolas +1",
-    legs="Aya. Cosciales +1",
-    feet="Aya. Gambieras +1",
-    neck="Combatant's Torque",
-    waist="Embla Sash",
+	main="Crepuscular Knife",
+    sub="Blurred Knife +1",
+    range="Oneiros Harp",
+    head="Aya. Zucchetto +2",
+    body="Ayanmo Corazza +2",
+    hands="Aya. Manopolas +2",
+    legs="Aya. Cosciales +2",
+    feet="Aya. Gambieras +2",
+    neck="Bard's Charm +1",
+    waist="Sailfi Belt +1",
     left_ear="Suppanomimi",
     right_ear="Eabani Earring",
-    left_ring="Oneiros Ring",
-    right_ring="Rajas Ring",
-    back="Pahtli Cape"
+    left_ring="Chirich Ring",
+    right_ring="Chirich Ring",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-2%',}}
 	}
 
     -- Sets with weapons defined.
     sets.engaged.Dagger = {
-	main={ name="Skinflayer", augments={'"Store TP"+4','STR+3','Accuracy+6','Attack+24','DMG:+6',}},
-    sub="Sangoma",
-    range={ name="Pyf Harp", augments={'String instrument skill +4',}},
-    head="Aya. Zucchetto +1",
-    body="Ayanmo Corazza +1",
-    hands="Aya. Manopolas +1",
-    legs="Aya. Cosciales +1",
-    feet="Aya. Gambieras +1",
-    neck="Combatant's Torque",
-    waist="Embla Sash",
+	main="Crepuscular Knife",
+    sub="Blurred Knife +1",
+    range="Oneiros Harp",
+    head="Aya. Zucchetto +2",
+    body="Ayanmo Corazza +2",
+    hands="Aya. Manopolas +2",
+    legs="Aya. Cosciales +2",
+    feet="Aya. Gambieras +2",
+    neck="Bard's Charm +1",
+    waist="Sailfi Belt +1",
     left_ear="Suppanomimi",
     right_ear="Eabani Earring",
-    left_ring="Oneiros Ring",
-    right_ring="Rajas Ring",
-    back="Pahtli Cape"
+    left_ring="Chirich  Ring",
+    right_ring="Chirich Ring",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-2%',}}
 	}
 
     -- Set if dual-wielding
     sets.engaged.DW = {
-	main={ name="Skinflayer", augments={'"Store TP"+4','STR+3','Accuracy+6','Attack+24','DMG:+6',}},
-    sub="Sangoma",
-    range={ name="Pyf Harp", augments={'String instrument skill +4',}},
-    head="Aya. Zucchetto +1",
-    body="Ayanmo Corazza +1",
-    hands="Aya. Manopolas +1",
-    legs="Aya. Cosciales +1",
-    feet="Aya. Gambieras +1",
-    neck="Combatant's Torque",
-    waist="Embla Sash",
+	main="Crepuscular Knife",
+    sub="Blurred Knife +1",
+    range="Oneiros Harp",
+    head="Aya. Zucchetto +2",
+    body="Ayanmo Corazza +2",
+    hands="Aya. Manopolas +2",
+    legs="Aya. Cosciales +2",
+    feet="Aya. Gambieras +2",
+    neck="Bard's Charm +1",
+    waist="Sailfi Belt +1",
     left_ear="Suppanomimi",
     right_ear="Eabani Earring",
-    left_ring="Oneiros Ring",
-    right_ring="Rajas Ring",
-    back="Pahtli Cape"
+    left_ring="Chirich Ring",
+    right_ring="Chirich Ring",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Store TP"+10','Phys. dmg. taken-2%',}}
 	}
 end
 
@@ -556,19 +555,19 @@ function calculate_duration(spellName, spellMap)
     if player.equipment.main == "Carnwenhan" then mult = mult + 0.1 end -- 0.1 for 75, 0.4 for 95, 0.5 for 99/119
     if player.equipment.main == "Legato Dagger" then mult = mult + 0.05 end
     if player.equipment.sub == "Legato Dagger" then mult = mult + 0.05 end
-    if player.equipment.neck == "Aoidos' Matinee" then mult = mult + 0.1 end
-    if player.equipment.body == "Aoidos' Hngrln. +2" then mult = mult + 0.1 end
+    if player.equipment.neck == "Fili' Matinee" then mult = mult + 0.1 end
+    if player.equipment.body == "Fili' Hngrln. +2" then mult = mult + 0.1 end
     if player.equipment.legs == "Mdk. Shalwar +1" then mult = mult + 0.1 end
     if player.equipment.feet == "Brioso Slippers" then mult = mult + 0.1 end
     if player.equipment.feet == "Brioso Slippers +1" then mult = mult + 0.11 end
     
     if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet" then mult = mult + 0.1 end
     if spellMap == 'Paeon' and player.equipment.head == "Brioso Roundlet +1" then mult = mult + 0.1 end
-    if spellMap == 'Madrigal' and player.equipment.head == "Aoidos' Calot +2" then mult = mult + 0.1 end
-    if spellMap == 'Minuet' and player.equipment.body == "Aoidos' Hngrln. +2" then mult = mult + 0.1 end
+    if spellMap == 'Madrigal' and player.equipment.head == "Fili' Calot +2" then mult = mult + 0.1 end
+    if spellMap == 'Minuet' and player.equipment.body == "Fili' Hngrln. +2" then mult = mult + 0.1 end
     if spellMap == 'March' and player.equipment.hands == 'Ad. Mnchtte. +2' then mult = mult + 0.1 end
-    if spellMap == 'Ballad' and player.equipment.legs == "Aoidos' Rhing. +2" then mult = mult + 0.1 end
-    if spellName == "Sentinel's Scherzo" and player.equipment.feet == "Aoidos' Cothrn. +2" then mult = mult + 0.1 end
+    if spellMap == 'Ballad' and player.equipment.legs == "Fili' Rhing. +2" then mult = mult + 0.1 end
+    if spellName == "Sentinel's Scherzo" and player.equipment.feet == "Fili' Cothrn. +2" then mult = mult + 0.1 end
     
     if buffactive.Troubadour then
         mult = mult*2

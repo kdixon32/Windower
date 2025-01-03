@@ -1,0 +1,1 @@
+input /ja Ignis <me>; wait 6; input /ja Ignis <me>; wait 6; input /ja Ignis <me>;

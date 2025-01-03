@@ -1,0 +1,1 @@
+input /ja Tellus <me>; wait 6; input /ja Tellus <me>; wait 6; input /ja Tellus <me>;

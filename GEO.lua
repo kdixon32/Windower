@@ -163,7 +163,7 @@ function get_sets()
 		waist="Witful Belt",
 		left_ear="Aredan Earring",
 		right_ear="Hecate's Earring",
-		left_ring="Stikini Ring",
+		left_ring="Renaye Ring",
 		right_ring="Stikini Ring",
 		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
     }
@@ -193,7 +193,20 @@ function get_sets()
     -- Luopan's Out --  notice sets.pan 
     -- This is the base for all perpetuation scenarios, as seen below
     sets.pan.idle.normal = {
-
+		main="Solstice",
+		range="Dunna",
+		head="Geomancy Galero",
+		body="Geo. Tunic +1",
+		hands={ name="Bagua Mitaines", augments={'Enhances "Curative Recantation" effect',}},
+		legs="Assiduity Pants",
+		feet="Geomancy Sandals",
+		neck="Sanctity Necklace",
+		waist="Witful Belt",
+		left_ear="Aredan Earring",
+		right_ear="Hecate's Earring",
+		left_ring="Renaye Ring",
+		right_ring="Stikini Ring",
+		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
     }
 	
 	-- This is when you have a Luopan out but want to sacrifice some slot for master DT, put those slots in.
@@ -331,12 +344,12 @@ function get_sets()
 		body={ name="Bagua Tunic", augments={'Enhances "Bolster" effect',}},
 		hands="Geo. Mitaines +1",
 		legs={ name="Bagua Pants", augments={'Enhances "Mending Halation" effect',}},
-		feet="Azimuth Gaiters",
+		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+21','"Fast Cast"+5','MND+5','"Mag.Atk.Bns."+1',}},
 		neck="Sanctity Necklace",
 		waist="Witful Belt",
 		left_ear="Handler's Earring +1",
 		right_ear="Hecate's Earring",
-		left_ring="Stikini Ring",
+		left_ring="Renaye Ring",
 		right_ring="Stikini Ring",
 		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
     })
@@ -347,13 +360,13 @@ function get_sets()
 		head="Azimuth Hood",
 		body={ name="Bagua Tunic", augments={'Enhances "Bolster" effect',}},
 		hands="Geo. Mitaines +1",
-		legs={ name="Bagua Pants", augments={'Enhances "Mending Halation" effect',}},
+		legs={ name="Bagua Pants + 1", augments={'Enhances "Mending Halation" effect',}},
 		feet="Azimuth Gaiters",
 		neck="Sanctity Necklace",
 		waist="Witful Belt",
 		left_ear="Handler's Earring +1",
 		right_ear="Hecate's Earring",
-		left_ring="Stikini Ring",
+		left_ring="Renaye Ring",
 		right_ring="Stikini Ring",
 		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
     })
@@ -367,35 +380,35 @@ function get_sets()
 		main="Solstice",
 		sub="Janus Guard",
 		range="Dunna",
-		head="Jhakri Coronal",
-		body="Jhakri Robe",
-		hands="Jhakri Cuffs +1",
-		legs="Jhakri Slops",
-		feet="Jhakri Pigaches +1",
+		head="Jhakri Coronal +2",
+		body="Jhakri Robe +2",
+		hands="Jhakri Cuffs +2",
+		legs="Jhakri Slops +2",
+		feet="Jhakri Pigaches +2",
 		neck="Sanctity Necklace",
-		waist="Witful Belt",
+		waist="Salire Belt",
 		left_ear="Friomisi Earring",
 		right_ear="Hecate's Earring",
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
-		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
+		left_ring="Mujin Band",
+		right_ring="Fenrir Ring",
+		back="Seshaw Cape"
     })
 	sets.midcast.MB.normal = set_combine(sets.midcast.nuking.normal, {
 		main="Solstice",
 		sub="Janus Guard",
 		range="Dunna",
-		head="Jhakri Coronal",
-		body="Jhakri Robe",
-		hands="Jhakri Cuffs +1",
-		legs="Jhakri Slops",
-		feet="Jhakri Pigaches +1",
+		head="Jhakri Coronal +2",
+		body="Jhakri Robe +2",
+		hands="Jhakri Cuffs +2",
+		legs="Jhakri Slops +2",
+		feet="Jhakri Pigaches +2",
 		neck="Sanctity Necklace",
-		waist="Witful Belt",
+		waist="Salire Belt",
 		left_ear="Friomisi Earring",
 		right_ear="Hecate's Earring",
-		left_ring="Stikini Ring",
-		right_ring="Stikini Ring",
-		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
+		left_ring="Mujin Band",
+		right_ring="Fenrir Ring",
+		back="Seshaw Cape"
 	})
     sets.midcast.nuking.acc = set_combine(sets.midcast.nuking.normal,{
 

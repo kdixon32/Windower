@@ -1,1 +1,1 @@
-input /ja "saboteur" <me>; wait 1.5; input /ma Frazzle II <bt>; wait 5; input /ma Distract II <bt>; wait 5; input /ma Addle <bt>; wait 5; input /ma Paralyze II <bt>; wait 3; input /ma Slow II <bt>; wait 3; input /ma Dia III <bt>; wait 3; input /ma Blind II <bt>;
+input /ja "saboteur" <me>; wait 1.5; input /ma Frazzle II <bt>; wait 5; input /ma Distract II <bt>; wait 5; input /ma Addle <bt>; wait 5; input /ma Paralyze II <bt>; wait 3; input /ma Slow II <bt>; wait 3; input /ma Dia III <bt>; wait 3; input /ma inundation <bt>;

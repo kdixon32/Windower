@@ -1,0 +1,1 @@
+input /ma Flash <bt>; wait 3; input /ma cocoon <me>; wait 4; input /ja Vallation <me>; wait 2; input /ma Foil <me>; wait 4; input /ma Jettatura <bt>; wait 4; input /ja Liement <me>; wait 3; /input /ma Flash <bt>; wait 3; input /ma Geist Wall <bt>; wait 4; input /ma Foil <me>;

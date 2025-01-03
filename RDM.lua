@@ -63,14 +63,15 @@ function init_gear_sets()
     head="Atro. Chapeau +1",
     body="Atrophy Tabard +1",
     hands="Atrophy Gloves +1",
-    legs="Espial Hose",
+    legs={ name="Carmine Cuisses", augments={'Accuracy+15','Attack+10','"Dual Wield"+5',}},
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}},
-    neck="Focus Collar",
+    neck="Sanctity Necklace",
+	ammo="Impatiens",
     left_ear="Friomisi Earring",
 	right_ear="Loquac. Earring",
     left_ring="Jhakri Ring",
     right_ring="Shiva Ring",
-    back={ name="Sucellos's Cape", augments={'MND+2','Mag. Acc+1 /Mag. Dmg.+1','"Fast Cast"+1','Damage taken-1%',}}
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Damage taken-1%',}}
 	}
 
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
@@ -78,9 +79,9 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head="Atrophy Chapeau +1",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Atrophy Tabard +1",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
-        back="Atheling Mantle",waist="Caudata Belt",legs="Hagondes Pants", feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}}
+        head="Atrophy Chapeau +1",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+        body="Atrophy Tabard +1",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Rufescent Ring",
+        back="Atheling Mantle",waist="Caudata Belt",legs="Jhakri Slops +1", feet="Jhakri Pigaches +1"}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, 
@@ -109,12 +110,21 @@ function init_gear_sets()
     sets.midcast.CureSelf = {ring1="Kunaji Ring",ring2="Asklepian Ring"}
 
     sets.midcast['Enhancing Magic'] = {
-        head="Atrophy Chapeau +1",neck="Colossus's Torque",
-        body="Vitivation Tabard",hands="Atrophy Gloves +1",ring1="Prolix Ring",left_ear="Eabani Earring",
-    right_ear="Snotra Earring",
-        back="Estoqueur's Cape",waist="Olympus Sash",legs="Atrophy Tights",feet="Estoqueur's Houseaux +2"}
+		head="Lethargy Chappel",
+		body="Lethargy Sayon",
+		hands="Atrophy Gloves +1",
+		legs="Leth. Fuseau",
+		feet="Leth. Houseaux",
+		neck="Sanctity Necklace",
+		waist="Embla Sash",
+		left_ear="Friomisi Earring",
+		right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+		left_ring="Jhakri Ring",
+		right_ring="Shiva Ring",
+		back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Damage taken-1%',}}
+	}
 
-    sets.midcast.Refresh = {legs="Estoqueur's Fuseau +2"}
+    sets.midcast.Refresh = {legs="Estoqueur's Fuseau"}
 
     sets.midcast.Stoneskin = {waist="Siegel Sash"}
     
@@ -125,7 +135,7 @@ function init_gear_sets()
 		hands="Jhakri Cuffs",
 		legs="Jhakri Slops",
 		feet="Aya. Gambieras +1",
-		neck="Focus Collar",
+		neck="Sanctity Necklace",
 		left_ear="Friomisi Earring",
 		right_ear="Snotra Earring",
 		left_ring="Jhakri Ring",
@@ -137,14 +147,14 @@ function init_gear_sets()
 
     sets.midcast['Slow II'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Vitivation Chapeau"})
     
-    sets.midcast['Elemental Magic'] ={{ name="Colada", augments={'"Dbl.Atk."+1','DEX+8','Accuracy+18','Attack+6','DMG:+3',}},
+    sets.midcast['Elemental Magic'] ={ 
      	ammo="Witchstone",
 		head="Atrophy Chapeau +1",
 		body="Atrophy Tabard +1",
 		hands="Jhakri Cuffs",
 		legs="Jhakri Slops",
 		feet="Aya. Gambieras +1",
-		neck="Focus Collar",
+		neck="Sanctity Necklace",
 		left_ear="Friomisi Earring",
 		left_ring="Jhakri Ring",
 		right_ring="Shiva Ring",
@@ -169,9 +179,9 @@ function init_gear_sets()
 
     sets.midcast.EnhancingDuration = {hands="Atrophy Gloves +1",back="Estoqueur's Cape",feet="Estoqueur's Houseaux +2"}
         
-    sets.buff.ComposureOther = {head="Estoqueur's Chappel +2",
-        body="Estoqueur's Sayon +2",hands="Estoqueur's Gantherots +2",
-        legs="Estoqueur's Fuseau +2",feet="Estoqueur's Houseaux +2"}
+    sets.buff.ComposureOther = {head="Estoqueur's Chappel",
+        body="Estoqueur's Sayon",hands="Estoqueur's Gantherots",
+        legs="Estoqueur's Fuseau",feet="Estoqueur's Houseaux"}
 
     sets.buff.Saboteur = {hands="Estoqueur's Gantherots +2"}
     
@@ -236,25 +246,25 @@ function init_gear_sets()
     
     -- Normal melee group
     sets.engaged = {
-    main={name="Colada", augments={'"Dbl.Atk."+1','DEX+8','Accuracy+18','Attack+6','DMG:+3',}},
-    sub="Tokko Sword",
+    main="Eletta Sword",
+    sub={name="Colada", augments={'"Dbl.Atk."+1','DEX+8','Accuracy+18','Attack+6','DMG:+3',}},
     ammo="Ginsen",
-    head="Aya. Zucchetto",
+    head="Aya. Zucchetto +2",
     body={ name="Taeon Tabard", augments={'"Triple Atk."+2','STR+7 DEX+7',}},
-    hands={ name="Taeon Gloves", augments={'"Triple Atk."+2','Sklchn.dmg.+2%',}},
-    legs="Jhakri Slops",
+    hands="Aya. Manopolas +1",
+    legs={ name="Carmine Cuisses", augments={'Accuracy+15','Attack+10','"Dual Wield"+5',}},
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}},
     neck="Sanctity Necklace",
     waist="Windbuffet Belt",
     left_ear="Eabani Earring",
-    right_ear="Snotra Earring",
+    right_ear="Megasco Earring",
     left_ring="Chirich Ring",
     right_ring="Chirich Ring",
-    back={ name="Sucellos's Cape", augments={'MND+13','Mag. Acc+16 /Mag. Dmg.+16','Mag. Acc.+1','"Fast Cast"+1','Damage taken-1%',}}
+    back="Bleating Mantle"
 	}
 
     sets.engaged.Defense = {ammo="Demonry Stone",
-        head="Atrophy Chapeau +1",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
+        head="Aya. Zucchetto +2",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
         body="Atrophy Tabard +1",hands="Atrophy Gloves +1",ring1="Rajas Ring",ring2="K'ayres Ring",
         back="Kayapa Cape",waist="Goading Belt",legs="Osmium Cuisses",feet="Atrophy Boots"}
 

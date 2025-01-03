@@ -1,0 +1,1 @@
+input /ja Battuta <me>; wait 3; input /ja One For All <me>; wait 3; input /ma Foil <me>; wait 4; input /ma Jettatura <bt>; wait 5; input /ja Swordplay <me>; wait 3; input /ma Geist Wall <bt>; wait 5; input /ma Foil <me>; /input /ma Cocoon <me>; wait 4;

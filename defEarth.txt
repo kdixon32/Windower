@@ -1,0 +1,1 @@
+input /ja Flabra <me>; wait 6; input /ja Flabra <me>; wait 6; input /ja Flabra <me>;

@@ -18,32 +18,35 @@ bind ^v paste
 
 bind numlock send @others /follow Roxion
 bind !numlock send Aluber /follow Roxion; send Keldeo /follow Roxion; send Ecclesia /follow Roxion;
-bind !enter sat youattack Roxion; sat youattack Aluber; sat youattack Keldeo; send Bonkugon /pet Assault <tid>; wait 1;
-bind ^enter sat allattack; wait 1; send Bonkugon /pet Assault <tid>; send Roxion /pet Deploy <tid>
+bind !enter sat youattack Roxion; sat youattack Aluber; sat youattack Keldeo; send Bonkugon /pet Assault <tid>; wait 1; send Bonkugon /target <tid>
+bind ^enter sat allattack; wait 1; send Bonkugon /pet Assault <tid>; wait 1; send Bonkugon /target <tid>
 bind ^numlock send @all exec unfol
-bind !^p send Roxion /pcmd add Ecclesia; wait 2; send Roxion /pcmd add Bonkugon; wait 2; send Roxion /pcmd add Apollousa; wait 2; send Roxion /pcmd add Keldeo; wait 2; send Roxion /pcmd add Aluber
+bind !^p send Roxion /pcmd add Ecclesia; wait 2; send Roxion /pcmd add Bonkugon; wait 2; send Roxion /pcmd add Apollousa; wait 2; send Roxion /pcmd add Keldeo; wait 2; send Roxion /pcmd add Aluber; wait 2; send @all exec alias
 
 bind %m send Roxion /mount Fenrir; send Bonkugon /mount Fenrir; send Ecclesia /mount Ixion; send Apollousa /mount Byakko; send Keldeo /mount Byakko; send Aluber /mount Byakko;
 bind ~%m send @all send @all /dismount
 
-bind !numpad2 send Ecclesia /ma Stone IV <tid>; send Keldeo /ma Stone III <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind ^numpad2 send Ecclesia /ma Stone V <tid>; send Keldeo /ma Stone IV <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind !numpad3 send Ecclesia /ma Water IV <tid>; send Keldeo /ma Water III <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind ^numpad3 send Ecclesia /ma Water V <tid>; send Keldeo /ma Water IV <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind !numpad4 send Ecclesia /ma Aero IV <tid>; send Keldeo /ma Aero III <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind ^numpad4 send Ecclesia /ma Aero V <tid>; send Keldeo /ma Aero IV <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind !numpad5 send Ecclesia /ma Fire IV <tid>; send Keldeo /ma Fire III <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind ^numpad5 send Ecclesia /ma Fire V <tid>; send Keldeo /ma Fire IV <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind !numpad6 send Ecclesia /ma Blizzard IV <tid>; send Keldeo /ma Blizzard III <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind ^numpad6 send Ecclesia /ma Blizzard V <tid>; send Keldeo /ma Blizzard IV <tid>; send Bonkugon //gs c pact bp75 <tid>
-bind !numpad7 send Ecclesia /ma Thunder IV <tid>; send Keldeo /ma Thunder III <tid>; send Bonkugon //gs c pact bp75 <tid> 
-bind ^numpad7 send Ecclesia /ma Thunder V <tid>; send Keldeo /ma Thunder IV <tid>; send Bonkugon //gs c pact bp75 <tid> 
+bind !numpad2 send Ecclesia /ma Stone V <tid>; 
+bind ^numpad2 send Ecclesia /ma Stone IV <tid>; 
+bind !numpad3 send Ecclesia /ma Water V <tid>;  
+bind ^numpad3 send Ecclesia /ma Water IV <tid>; 
+bind !numpad4 send Ecclesia /ma Aero V <tid>; 
+bind ^numpad4 send Ecclesia /ma Aero IV <tid>; 
+bind !numpad5 send Ecclesia /ma Fire V <tid>; 
+bind ^numpad5 send Ecclesia /ma Fire IV <tid>; 
+bind !numpad6 send Ecclesia /ma Blizzard V <tid>; 
+bind ^numpad6 send Ecclesia /ma Blizzard IV <tid>; 
+bind !numpad7 send Ecclesia /ma Thunder V <tid>; 
+bind ^numpad7 send Ecclesia /ma Thunder IV <tid>; 
 
-bind ~numpad0 send Ecclesia /ma Sleepga <tid>; send Bonkugon //gs c pact sleep 
-bind ~numpad1 send Bonkugon gs c pact buffOffense
-bind ~numpad2 send Bonkugon gs c pact buffDefense
-bind ~numpad3 send Bonkugon gs c pact curaga 
-bind ~numpad4 send Bonkugon gs c pact buffSpecial 
+bind ~numpad0 send Ecclesia /ma Sleepga <tid>; send Bonkugon //gs c pact sleep
+bind ~numpad1 send Bonkugon gs c pact buffOffense; wait 29; send Bonkugon /p Ward Ready
+bind ~numpad2 send Bonkguon gs c pact debuff1; wait 29; send Bonkugon /p Ward Ready
+bind ~numpad3 send Bonkugon gs c pact curaga; wait 29; send Bonkugon /p Ward Ready
+bind ~numpad4 send Bonkugon gs c pact buffSpecial; wait 29; send Bonkugon /p Ward Ready  
+bind ~numpad5 send Bonkugon gs c pact buffDefense; wait 29; send Bonkugon /p Ward Ready
+bind ~numpad6 send Bonkugon gs c pact bp70; wait 29; send Bonkugon /p Ward Ready
+bind ~numpad9 send Bonkugon gs c siphon
 
 
 bind ~%1 send Bonkugon /pet release <me>
@@ -53,15 +56,16 @@ bind ~%4 send Bonkugon /ma Garuda <me>
 bind ~%5 send Bonkugon /ma Ifrit <me>
 bind ~%6 send Bonkugon /ma Shiva <me>
 bind ~%7 send Bonkugon /ma Ramuh <me>
-bind ~%8 send Bonkugon /ma Carbuncle <me>
+bind ~%8 send Bonkugon /ma Diabolos <me>
 bind ~%9 send Bonkugon /ma Fenrir <me>
+bind ~%0 send Bonkugon /ma Cait Sith <me>
 
-bind ~f1 send Keldeo /ma Cure IV Roxion;
-bind ~f2 send Keldeo /ma Cure IV Ecclesia; 
-bind ~f3 send Keldeo /ma Cure IV Bonkugon; 
-bind ~f4 send Keldeo /ma Cure IV Apollousa;
-bind ~f5 send Keldeo /ma Cure IV <me>; 
-bind ~f6 send Keldeo /ma Cure IV Aluber; 
+bind ^f1 send Keldeo /ma Cure IV Roxion;
+bind ^f2 send Keldeo /ma Cure IV Ecclesia; 
+bind ^f3 send Keldeo /ma Cure IV Bonkugon; 
+bind ^f4 send Keldeo /ma Cure IV Apollousa;
+bind ^f5 send Keldeo /ma Cure IV <me>; 
+bind ^f6 send Keldeo /ma Cure IV Aluber; 
 
 bind %1 send Apollousa /ma Cure IV Roxion
 bind %2 send Apollousa /ma Cure IV Ecclesia
@@ -72,13 +76,14 @@ bind %6 send Apollousa /ma Cure IV Aluber
 bind %7 send Apollousa /ma Curaga III Roxion
 bind %8 send Apollousa /ma Curaga II Roxion
 bind %9 send Apollousa /ma Curaga Roxion
+bind %0 send Aluber /ma Healing Breeze <me>
 
-bind ^f1 send Bonkugon /ma Cure IV Roxion
-bind ^f2 send Bonkugon /ma Cure IV Ecclesia
-bind ^f3 send Bonkugon /ma Cure IV <me>
-bind ^f4 send Bonkugon /ma Cure IV Apollousa
-bind ^f5 send Bonkugon /ma Cure IV Keldeo
-bind ^f6 send Bonkugon /ma Cure IV Aluber
+bind ~f1 send Bonkugon /ma Cure IV Roxion
+bind ~f2 send Bonkugon /ma Cure IV Ecclesia
+bind ~f3 send Bonkugon /ma Cure IV <me>
+bind ~f4 send Bonkugon /ma Cure IV Apollousa
+bind ~f5 send Bonkugon /ma Cure IV Keldeo
+bind ~f6 send Bonkugon /ma Cure IV Aluber
 
 
 

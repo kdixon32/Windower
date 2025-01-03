@@ -1,0 +1,69 @@
+alias sa send @all
+alias off send @all attackoff
+alias wa send @all warp
+alias shutdown send @all /shutdown
+alias invis send @all cancel 69
+alias sneak send @all cancel 71
+alias heal send @all /heal
+
+alias bs send Apollousa /ma barstonra <me>
+alias bw send Apollousa /ma barwatera <me>
+alias ba send Apollousa /ma baraera <me>
+alias bf send Apollousa /ma barfira <me>
+alias bb send Apollousa /ma barblizzara <me>
+alias bt send Apollousa /ma barthundra <me>
+alias bsleep send Apollousa /ma barsleepra <me>
+alias bpara send Apollousa /ma barparalyzra <me>
+alias bpetra send Apollousa /ma barpetra <me>
+alias bsilence send Apollousa /ma barsilencera <me>
+alias bsleep send Apollousa /ma barsleepra <me>
+alias bpoison send Apollousa /ma barspoisonra <me>
+alias bvirus send Apollousa /ma barvira <me>
+alias li send Apollousa /ma aurorastorm <me>
+alias penury send Apollousa /ja penury <me>
+
+alias emer send Apollousa /ja Benediction <me>; send Aluber /ja Elemental Sforzo <me>
+
+
+alias para1 send Apollousa /ma paralyna Roxion 
+alias para2 send Apollousa /ma paralyna Ecclesia
+alias para3 send Apollousa /ma paralyna Bonkugon
+alias para4 send Apollousa /ma paralyna <me>
+alias para5 send Apollousa /ma paralyna Keldeo
+alias para6 send Apollousa /ma paralyna Aluber
+
+alias stona1 send Apollousa /ma stona Roxion z
+alias stona2 send Apollousa /ma stona Ecclesia
+alias stona3 send Apollousa /ma stona Bonkugon
+alias stona4 send Apollousa /ma stona <me>
+alias stona5 send Apollousa /ma stona Keldeo
+alias stona6 send Apollousa /ma stona Aluber
+
+alias temper send Keldeo /ma temper <me>
+alias enblizz send Keldeo /ma Enblizzard <me>
+ 
+alias smn2hr send Bonkugon /ja Astral Flow <me>; wait 1; send Bonkugon /ja Astral Conduit 
+alias apogee send Bonkugon /ja Apogee <me>
+alias bconvert send Bonkugon /ja Convert <me>; wait 1; send Bonkugon /ma Cure IV <me>; send Apollousa /ma Cure IV Bonkugon
+
+
+alias link send Aluber /ma Sheep Song <tid>
+alias rayke send Aluber /ja rayke <tid>; wait 2; send Aluber exec defDark
+alias gambit send Aluber /ja gambit <tid>
+alias pulse send Aluber /ja Vivacious Pulse <me>;
+alias defwind send Aluber exec defWind
+alias deffire send Aluber exec defFire
+alias defwater send Aluber exec defWater
+alias defearth send Aluber exec defEarth
+alias deflight send Aluber exec defLight
+alias defdark send ALuber exec defDark
+alias defice send Aluber exec defIce
+alias defthunder send Aluber execdefThunder
+
+alias sleepga send Ecclesia /ma Sleepga <tid>
+alias sleep send Ecclesia /ma Sleep II <tid>
+
+alias ballad2 send Roxion /ja Pianissimo <me>; wait 1; send Roxion Mage's Ballad III Ecclesia
+alias ballad3 send Roxion /ja Pianissimo <me>; wait 1; send Roxion Mage's Ballad III Bonkugon
+alias ballad5 send Roxion /ja Pianissimo <me>; wait 1; send Roxion Mage's Ballad III Keldeo
+alias ballad6 send Roxion /ja Pianissimo <me>; wait 1; send Roxion Mage's Ballad III Aluber

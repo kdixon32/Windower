@@ -14,6 +14,10 @@ end
 function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
+	
+	barStatus = {}
+	barStatus.list = S{'Barparalyzra', 'Barpoisonra'}
+	
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -47,13 +51,13 @@ function init_gear_sets()
 		hands="Gende. Gages +1",
 		legs="Orvail Pants +1",
 		feet="Regal Pumps +1",
-		neck="Focus Collar",
+		neck="Cleric's Torque",
 		waist="Embla Sash",
 		left_ear="Nourish. Earring +1",
 		right_ear="Loquac. Earring",
 		left_ring="Inyanga Ring",
 		right_ring="Windurstian Ring",
-		back={ name="Alaunus's Cape", augments={'MND+19','Eva.+10 /Mag. Eva.+10','Mag. Evasion+1','Enmity-1','Phys. dmg. taken-2%',}}
+		back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
 		}
         
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
@@ -106,10 +110,22 @@ function init_gear_sets()
     gear.default.obi_waist = "Goading Belt"
     gear.default.obi_back = "Mending Cape"
 
-    sets.midcast.CureSolace = {main="Tamaxchi",sub="Genbu's Shield",ammo="Incantor Stone",
-        head="Gendewitha Caubeen",neck="Orison Locket",ear1="Lifestorm Earring",ear2="Orison Earring",
-        body="Orison Bliaud +2",hands="Theophany Mitts",ring1="Prolix Ring",ring2="Sirona's Ring",
-        back="Tuilha Cape",waist=gear.ElementalObi,legs="Orison Pantaloons +2",feet="Piety Duckbills +1"}
+    sets.midcast.CureSolace = {main="Iridal Staff",
+    sub="Vivid Strap",
+    ammo="Impatiens",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+    body="Theo. Bliaut +1",
+    hands="Theo. Mitts +1",
+    legs="Miasmic Pants",
+    feet="Inyan. Crackows +1",
+    neck="Cleric's Torque",
+    waist="Olympus Sash",
+    left_ear="Nourish. Earring +1",
+	right_ear="Mendicant's Earring",
+    left_ring="Janniston Ring",
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
+	}
 
     sets.midcast.Cure = {    
 	main="Iridal Staff",
@@ -120,12 +136,13 @@ function init_gear_sets()
     hands="Theo. Mitts +1",
     legs="Miasmic Pants",
     feet="Inyan. Crackows +1",
-    neck="Focus Collar",
+    neck="Cleric's Torque",
     waist="Olympus Sash",
     left_ear="Nourish. Earring +1",
-    left_ring="Inyanga Ring",
-    right_ring="Windurstian Ring",
-    back={ name="Alaunus's Cape", augments={'MND+19','Eva.+10 /Mag. Eva.+10','Mag. Evasion+1','Enmity-1','Phys. dmg. taken-2%',}}
+	right_ear="Mendicant's Earring",
+    left_ring="Janniston Ring",
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
 	}
 
     sets.midcast.Curaga = {    
@@ -140,9 +157,10 @@ function init_gear_sets()
     neck="Cleric's Torque",
     waist="Olympus Sash",
     left_ear="Nourish. Earring +1",
+	right_ear="Mendicant's Earring",
     left_ring="Inyanga Ring",
-    right_ring="Windurstian Ring",
-    back={ name="Alaunus's Cape", augments={'MND+19','Eva.+10 /Mag. Eva.+10','Mag. Evasion+1','Enmity-1','Phys. dmg. taken-2%',}}
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
 	}
 
     sets.midcast.CureMelee = {ammo="Incantor Stone",
@@ -175,9 +193,16 @@ function init_gear_sets()
         head="Orison Cap +2",neck="Colossus's Torque",
         body="Orison Bliaud +2",hands="Orison Mitts +2", ear2="Mimir Earring",
         back="Mending Cape",waist="Embla Sash",legs="Piety Pantaloons",feet="Orison Duckbills +2"}
+	sets.midcast.barStatus = {
+		main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
+		
+		
+	}
 
-    sets.midcast.Regen = {main="Bolelabunga",sub="Genbu's Shield",
-        body="Piety Briault",hands="Orison Mitts +2",
+    sets.midcast.Regen = {
+		main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
+        body="Piety Briault",hands="Ebers Mitts",
+		head="Inyanga Tiara +2",
         legs="Theophany Pantaloons"}
 
     sets.midcast.Protectra = {ring1="Sheltered Ring",feet="Piety Duckbills +1"}
@@ -220,17 +245,18 @@ function init_gear_sets()
 	main="Iridal Staff",
     sub="Vivid Strap",
     ammo="Impatiens",
-    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-    body="Theo. Bliaut +1",
-    hands="Theo. Mitts +1",
-    legs="Miasmic Pants",
+    head="Inyanga Tiara +2",
+    body="Theophany Bliaut +1",
+    hands="Inyanga Dastanas +1",
+    legs="Inyanga Shalwar +1",
     feet="Inyan. Crackows +1",
     neck="Cleric's Torque",
     waist="Embla Sash",
     left_ear="Nourish. Earring +1",
+	right_ear="Eabani Earring",
     left_ring="Inyanga Ring",
-    right_ring="Windurstian Ring",
-    back={ name="Alaunus's Cape", augments={'MND+19','Eva.+10 /Mag. Eva.+10','Mag. Evasion+1','Enmity-1','Phys. dmg. taken-2%',}}
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
 	}
 
     sets.idle.PDT = {main="Bolelabunga", sub="Genbu's Shield",ammo="Incantor Stone",

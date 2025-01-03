@@ -67,13 +67,13 @@ function job_setup()
     pacts = {}
     pacts.cure = {['Carbuncle']='Healing Ruby'}
     pacts.curaga = {['Carbuncle']='Healing Ruby II', ['Garuda']='Whispering Wind', ['Leviathan']='Spring Water'}
-    pacts.buffoffense = {['Carbuncle']='Glittering Ruby', ['Ifrit']='Crimson Howl', ['Garuda']='Hastega', ['Ramuh']='Rolling Thunder',
-        ['Fenrir']='Ecliptic Growl'}
-    pacts.buffdefense = {['Carbuncle']='Shining Ruby', ['Shiva']='Frost Armor', ['Garuda']='Aerial Armor', ['Titan']='Earthen Ward',
+    pacts.buffoffense = {['Carbuncle']='Glittering Ruby', ['Ifrit']='Crimson Howl', ['Garuda']='Hastega II', ['Ramuh']='Rolling Thunder',
+        ['Fenrir']='Ecliptic Growl', ['Shiva']='Crystal Blessing'}
+    pacts.buffdefense = {['Carbuncle']='Shining Ruby', ['Shiva']='Frost Armor', ['Garuda']='Aerial Armor', ['Titan']='Earthen Armor',
         ['Ramuh']='Lightning Armor', ['Fenrir']='Ecliptic Howl', ['Diabolos']='Noctoshield', ['Cait Sith']='Reraise II'}
-    pacts.buffspecial = {['Ifrit']='Inferno Howl', ['Garuda']='Fleet Wind', ['Titan']='Earthen Armor', ['Diabolos']='Dream Shroud',
+    pacts.buffspecial = {['Ifrit']='Inferno Howl', ['Garuda']='Fleet Wind', ['Titan']='Earthen Ward', ['Diabolos']='Dream Shroud',
         ['Carbuncle']='Soothing Ruby', ['Fenrir']='Heavenward Howl', ['Cait Sith']='Raise II'}
-    pacts.debuff1 = {['Shiva']='Diamond Storm', ['Ramuh']='Shock Squall', ['Leviathan']='Tidal Roar', ['Fenrir']='Lunar Cry',
+    pacts.debuff1 = {['Shiva']='Diamond Storm', ['Ramuh']='Shock Squall', ['Leviathan']='Tidal Roar', ['Fenrir']='Impact',
         ['Diabolos']='Pavor Nocturnus', ['Cait Sith']='Eerie Eye'}
     pacts.debuff2 = {['Shiva']='Sleepga', ['Leviathan']='Slowga', ['Fenrir']='Lunar Roar', ['Diabolos']='Somnolence'}
     pacts.sleep = {['Shiva']='Sleepga', ['Diabolos']='Nightmare', ['Cait Sith']='Mewing Lullaby'}
@@ -98,7 +98,7 @@ function job_setup()
         ['Crimson Howl'] = 60, ['Earthen Armor'] = 60, ['Inferno Howl'] = 60, ['Heavenward Howl'] = 60,
         ['Rolling Thunder'] = 120, ['Fleet Wind'] = 120,
         ['Shining Ruby'] = 180, ['Frost Armor'] = 180, ['Lightning Armor'] = 180, ['Ecliptic Growl'] = 180,
-        ['Glittering Ruby'] = 180, ['Hastega'] = 180, ['Noctoshield'] = 180, ['Ecliptic Howl'] = 180,
+        ['Glittering Ruby'] = 180, ['Hastega II'] = 180, ['Noctoshield'] = 180, ['Ecliptic Howl'] = 180,
         ['Dream Shroud'] = 180,
         ['Reraise II'] = 3600
     }
@@ -109,7 +109,7 @@ function job_setup()
         ['Dream Shroud']    = 'spells/00304.png', -- 00304 for Diabolos
         ['Noctoshield']     = 'spells/00106.png', -- 00106 for Phalanx
         ['Inferno Howl']    = 'spells/00298.png', -- 00298 for Ifrit
-        ['Hastega']         = 'spells/00358.png', -- 00358 for Hastega
+        ['Hastega II']         = 'spells/00358.png', -- 00358 for Hastega
         ['Rolling Thunder'] = 'spells/00104.png', -- 00358 for Enthunder
         ['Frost Armor']     = 'spells/00250.png', -- 00250 for Ice Spikes
         ['Lightning Armor'] = 'spells/00251.png', -- 00251 for Shock Spikes
@@ -156,21 +156,21 @@ function init_gear_sets()
 
     -- Pact delay reduction gear
     sets.precast.BloodPactWard = {
-	    main="Espiritus",
+	    main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
 		sub="Vox Grip",
-		ammo="Seraphicaller",
+		ammo="Sancus Sachet +1",
 		head="Convoker's Horn",
-		body="Con. Doublet +1",
-		hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
-		legs="Assid. Pants +1",
-		feet="Apogee Pumps +1",
+		body="Baayami Robe",
+		hands="Baayami Cuffs",
+		legs="Baayami Slops",
+		feet="Glyphic Pigaches",
 		neck="Caller's Pendant",
 		waist="Jaq'ij Sash",
 		left_ear="Lodurr Earring",
 		right_ear="Gelos Earring",
 		left_ring="Fervor Ring",
 		right_ring="Evoker's Ring",
-		back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+2','Pet: Damage taken -1%',}},
+		back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},
 }
 
     sets.precast.BloodPactRage = sets.precast.BloodPactWard
@@ -180,9 +180,9 @@ function init_gear_sets()
     sets.precast.FC = {
     main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
     sub="Vox Grip",
-    ammo="Seraphicaller",
+    ammo="Impatiens",
     head="Amalric Coif",
-    body="Inyanga Jubbah",
+    body="Inyanga Jubbah +2",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
     feet="Regal Pumps +1",
@@ -192,7 +192,8 @@ function init_gear_sets()
 	right_ear="Loquac. Earring",
     left_ring="Varar Ring",
     right_ring="Varar Ring",
-    back="Swith Cape"}
+    back={ name="Campestres's Cape", augments={'Fast Cast+10%',}}
+}	
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
@@ -240,71 +241,75 @@ function init_gear_sets()
 
     -- Avatar pact sets.  All pacts are Ability type.
     
-    sets.midcast.Pet.BloodPactWard = {    main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
-    sub="Elan Strap",
-    ammo="Seraphicaller",
-    head="Convoker's Horn",
-    body="Con. Doublet +1",
-    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
-    legs="Assid. Pants +1",
-    feet="Apogee Pumps +1",
+    sets.midcast.Pet.BloodPactWard = {    main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
+    sub="Vox Grip",
+    ammo="Sancus Sachet +1",
+    head="Baayami Hat",
+    body="Baayami Robe",
+    hands="Baayami Cuffs",
+	legs="Baayami Slops",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     neck="Caller's Pendant",
     waist="Jaq'ij Sash",
     left_ear="Lodurr Earring",
+	right_ear="Gifted Earring",
     left_ring="Fervor Ring",
     right_ring="Evoker's Ring",
-    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+2','Pet: Damage taken -1%',}}}
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},}
 
-    sets.midcast.Pet.DebuffBloodPactWard = {    main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
-    sub="Elan Strap",
-    ammo="Seraphicaller",
+    sets.midcast.Pet.DebuffBloodPactWard = {    main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
+    sub="Vox Grip",
+    ammo="Sancus Sachet +1",
     head="Convoker's Horn",
     body="Con. Doublet +1",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
-    legs="Assid. Pants +1",
-    feet="Apogee Pumps +1",
+    legs="Baayami Slops",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     neck="Caller's Pendant",
     waist="Jaq'ij Sash",
-    left_ear="Gifted Earring",
+    left_ear="Lodurr Earring",
+	right_ear="Gifted Earring",
     left_ring="Fervor Ring",
     right_ring="Evoker's Ring",
-    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+2','Pet: Damage taken -1%',}}}
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},}
         
     sets.midcast.Pet.DebuffBloodPactWard.Acc = sets.midcast.Pet.DebuffBloodPactWard
     
     sets.midcast.Pet.PhysicalBloodPactRage = {    
 	main={ name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Elan Strap",
-    ammo="Seraphicaller",
-    head="Convoker's Horn",
-    body="Con. Doublet +1",
-    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
-    legs="Assid. Pants +1",
-    feet="Con. Pigaches +1",
+    ammo="Sancus Sachet +1",
+    head={ name="Apogee Crown", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    hands={ name="Merlinic Dastanas", augments={'Pet: Mag. Acc.+17 Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -2%','Pet: AGI+8','Pet: "Mag.Atk.Bns."+13',}},
+	legs={ name="Apogee Slacks", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     neck="Caller's Pendant",
     waist="Mujin Obi",
     left_ear="Gifted Earring",
+	right_ear="Gelos Earring",
     left_ring="Varar Ring",
     right_ring="Varar Ring",
-    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+2','Pet: Damage taken -1%',}}}
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},}
 
     sets.midcast.Pet.PhysicalBloodPactRage.Acc = sets.midcast.Pet.PhysicalBloodPactRage
 
     sets.midcast.Pet.MagicalBloodPactRage = {    
 	main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
     sub="Elan Strap",
-    ammo="Seraphicaller",
-    head="Convoker's Horn",
-    body="Con. Doublet +1",
-    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
-    legs="Assid. Pants +1",
-    feet="Con. Pigaches +1",
+    ammo="Sancus Sachet +1",
+    head={ name="Apogee Crown", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    hands={ name="Merlinic Dastanas", augments={'Pet: Mag. Acc.+17 Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -2%','Pet: AGI+8','Pet: "Mag.Atk.Bns."+13',}},
+    legs={ name="Apogee Slacks", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     neck="Caller's Pendant",
-    waist="Jaq'ij Sash",
+    waist="Klouskap Sash",
     left_ear="Gifted Earring",
+	right_ear="Gelos Earring",
     left_ring="Varar Ring",
     right_ring="Varar Ring",
-    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+2','Pet: Damage taken -1%',}}}
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},}
 
     sets.midcast.Pet.MagicalBloodPactRage.Acc = sets.midcast.Pet.MagicalBloodPactRage
 
@@ -323,22 +328,51 @@ function init_gear_sets()
     --------------------------------------
     
     -- Resting sets
-    sets.resting = {main=gear.Staff.HMP,ammo="Seraphicaller",
-        head="Convoker's Horn",neck="Wiglen Gorget",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Hagondes Coat",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
-        back="Pahtli Cape",waist="Austerity Belt",legs="Nares Trews",feet="Chelona Boots +1"}
+    sets.resting = {main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
+    sub="Vox Grip",
+    ammo="Sancus Sachet +1",
+    head="Convoker's Horn",
+    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
+    legs="Assid. Pants +1",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    neck="Caller's Pendant",
+    waist="Klouskap Sash",
+    left_ear="Gifted Earring",
+    left_ring="Woltaris Ring",
+    right_ring="Evoker's Ring",
+    back="Campestres's Cape"}
     
     -- Idle sets
     sets.idle = {main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
-	sub="Genbu's Shield",ammo="Seraphicaller",
-        head="Convoker's Horn",neck="Wiglen Gorget",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Hagondes Coat",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Sangoma Ring",
-        back="Umbra Cape",waist="Fucho-no-Obi",legs="Nares Trews",feet="Herald's Gaiters"}
-
-    sets.idle.PDT = {main=gear.Staff.PDT,sub="Achaq Grip",ammo="Seraphicaller",
-        head="Convoker's Horn",neck="Twilight Torque",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Hagondes Coat",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Sangoma Ring",
-        back="Umbra Cape",waist="Fucho-no-Obi",legs="Hagondes Pants",feet="Herald's Gaiters"}
+    sub="Vox Grip",
+    ammo="Sancus Sachet +1",
+    head="Convoker's Horn",
+    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
+    legs="Assid. Pants +1",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    neck="Caller's Pendant",
+    waist="Klouskap Sash",
+    left_ear="Gifted Earring",
+    left_ring="Woltaris Ring",
+    right_ring="Evoker's Ring",
+    back="Campestres's Cape"}
+	
+    sets.idle.PDT = {main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
+    sub="Vox Grip",
+    ammo="Sancus Sachet +1",
+    head="Convoker's Horn",
+    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
+    legs="Assid. Pants +1",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    neck="Caller's Pendant",
+    waist="Klouskap Sash",
+    left_ear="Gifted Earring",
+    left_ring="Woltaris Ring",
+    right_ring="Evoker's Ring",
+    back="Campestres's Cape"}
 
     -- perp costs:
     -- spirits: 7
@@ -363,12 +397,27 @@ function init_gear_sets()
     sets.idle.Avatar = {    
 	main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
-    ammo="Seraphicaller",
+    ammo="Sancus Sachet +1",
     head="Convoker's Horn",
-    body="Apogee Dalmatica",
+    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
-    feet="Apogee Pumps +1",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    neck="Caller's Pendant",
+    waist="Klouskap Sash",
+    left_ear="Gifted Earring",
+    left_ring="Woltaris Ring",
+    right_ring="Evoker's Ring",
+    back="Campestres's Cape"}
+
+    sets.idle.PDT.Avatar = 	{main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
+    sub="Vox Grip",
+    ammo="Sancus Sachet +1",
+    head="Convoker's Horn",
+    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
+    legs="Assid. Pants +1",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     neck="Caller's Pendant",
     waist="Klouskap Sash",
     left_ear="Gifted Earring",
@@ -376,25 +425,38 @@ function init_gear_sets()
     right_ring="Evoker's Ring",
     back="Campestres's Cape"}
 
-    sets.idle.PDT.Avatar = {main ={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
-	sub="Achaq Grip",
-	ammo="Seraphicaller",
-        head="Convoker's Horn",neck="Caller's Pendant",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Hagondes Coat",hands="Regimen Mittens",ring1="Evoker's Ring",ring2="Defending Ring",
-        back="Conveyance Cape",waist="Fucho-no-Obi",legs="Hagondes Pants",feet="Convoker's Pigaches"}
+    sets.idle.Spirit = {	main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
+    sub="Vox Grip",
+    ammo="Sancus Sachet +1",
+    head="Convoker's Horn",
+    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
+    legs="Assid. Pants +1",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    neck="Caller's Pendant",
+    waist="Klouskap Sash",
+    left_ear="Gifted Earring",
+    left_ring="Fervor Ring",
+    right_ring="Evoker's Ring",
+    back="Campestres's Cape"}
 
-    sets.idle.Spirit = {main="Gridarvor",sub="Achaq Grip",ammo="Seraphicaller",
-        head="Convoker's Horn",neck="Caller's Pendant",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Hagondes Coat",hands="Serpentes Cuffs",ring1="Evoker's Ring",ring2="Sangoma Ring",
-        back="Samanisi Cape",waist="Fucho-no-Obi",legs="Summoner's Spats",feet="Herald's Gaiters"}
-
-    sets.idle.Town = {main="Bolelabunga",sub="Genbu's Shield",ammo="Seraphicaller",
-        head="Convoker's Horn",neck="Wiglen Gorget",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Hagondes Coat",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Sangoma Ring",
-        back="Umbra Cape",waist="Fucho-no-Obi",legs="Nares Trews",feet="Herald's Gaiters"}
+    sets.idle.Town = {	main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
+    sub="Vox Grip",
+    ammo="Sancus Sachet +1",
+    head="Convoker's Horn",
+    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
+    legs="Assid. Pants +1",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    neck="Caller's Pendant",
+    waist="Klouskap Sash",
+    left_ear="Gifted Earring",
+    left_ring="Fervor Ring",
+    right_ring="Evoker's Ring",
+    back="Campestres's Cape"}
 
     -- Favor uses Caller's Horn instead of Convoker's Horn for refresh
-    sets.idle.Avatar.Favor = {head="Caller's Horn +2"}
+    sets.idle.Avatar.Favor = {head="Beckoner's Horn"}
     sets.idle.Avatar.Melee = {hands="Regimen Mittens",back="Samanisi Cape",waist="Kuku Stone",legs="Convoker's Spats"}
         
     sets.perp = {}
@@ -414,15 +476,9 @@ function init_gear_sets()
     sets.perp.staff_and_grip = {main=gear.perp_staff,sub="Achaq Grip"}
     
     -- Defense sets
-    sets.defense.PDT = {main=gear.Staff.PDT,
-        head="Hagondes Hat",neck="Wiglen Gorget",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Hagondes Coat",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2=gear.DarkRing.physical,
-        back="Umbra Cape",waist="Fucho-no-Obi",legs="Hagondes Pants",feet="Hagondes Sabots"}
+    sets.defense.PDT = {}
 
-    sets.defense.MDT = {
-        head="Hagondes Hat",neck="Twilight Torque",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
-        back="Umbra Cape",waist="Fucho-no-Obi",legs="Bokwus Slops",feet="Hagondes Sabots"}
+    sets.defense.MDT = {}
 
     sets.Kiting = {feet="Herald's Gaiters"}
     
@@ -434,10 +490,8 @@ function init_gear_sets()
     --------------------------------------
     
     -- Normal melee group
-    sets.engaged = {ammo="Seraphicaller",
-        head="Zelus Tiara",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Vanir Cotehardie",hands="Bokwus Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
-        back="Umbra Cape",waist="Goading Belt",legs="Hagondes Pants",feet="Hagondes Sabots"}
+    sets.engaged = {
+	}
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -769,7 +823,7 @@ function handle_pacts(cmdParams)
         end
         
         -- Leave out target; let Shortcuts auto-determine it.
-        send_command('@input /pet "'..pacts[pact][pet.name]..'"')
+        send_command('@input /pet "'..pacts[pact][pet.name]..'"' )
     else
         add_to_chat(122,pet.name..' does not have a pact of type ['..pact..'].')
     end

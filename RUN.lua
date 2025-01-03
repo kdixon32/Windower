@@ -48,7 +48,7 @@ end
 
 
 function init_gear_sets()
-    sets.enmity = {ammo="Aqreqaq Bomblet", hands="Futhark Gloves +1", back="Mubvumbamiri mantle", waist="Warwolf Belt"}
+    sets.enmity = {ammo="Aqreqaq Bomblet", hands="Futhark Gloves +1", back="Mubvumbamiri mantle", waist="Warwolf Belt", neck="Futhark Torque +1"}
 
 	--------------------------------------
 	-- Precast sets
@@ -86,13 +86,13 @@ function init_gear_sets()
 
 	-- Weaponskill sets
     sets.precast.WS['Resolution'] = {ammo="Aqreqaq Bomblet",
-            head="Whirlpool Mask", neck="Thunder Gorget", ear1="Bladeborn Earring", ear2="Steelflash Earring",
+            head="Whirlpool Mask", neck="Thunder Gorget", ear1="Bladeborn Earring", ear2="Tuisto Earring",
             body="Manibozho Jerkin", hands="Futhark Mitons +1", ring1="Epona's Ring", ring2="Rajas Ring",
             back="Buquwik Cape", waist="Thunder Belt", legs="Quiahuiz Trousers", feet="Qaaxo Leggings"}
     sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'].Normal, 
         {ammo="Honed Tathlum", body="Dread Jupon", hands="Umuthi Gloves", back="Evasionist's Cape", legs="Manibozho Legs"})
     sets.precast.WS['Dimidiation'] = {ammo="Thew Bomblet",
-            head="Felistris Mask", neck="Thunder Gorget", ear1="Bladeborn Earring", ear2="Steelflash Earring",
+            head="Felistris Mask", neck="Thunder Gorget", ear1="Bladeborn Earring", ear2="Tuisto Earring",
             body="Dread Jupon", hands="Futhark Mitons +1", ring1="Epona's Ring", ring2="Rajas Ring",
             back="Atheling Mantle", waist="Windbuffet Belt", legs="Manibozho Brais", feet="Qaaxo Leggings"}
     sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS['Dimidiation'].Normal, 
@@ -106,7 +106,7 @@ function init_gear_sets()
 	--------------------------------------
 	
     sets.midcast.FastRecast = {}
-    sets.midcast['Enhancing Magic'] = {neck="Colossus's torque", ear1="Andoaa Earring", hands="Runeist mitons +1", waist="Olympus Sash", legs="Futhark Trousers +1"}
+    sets.midcast['Enhancing Magic'] = {neck="Colossus's torque", ear1="Mimir Earring", hands="Runeist mitons +1", waist="Olympus Sash", legs="Futhark Trousers +1"}
     sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {head="Futhark Bandeau +1"})
     sets.midcast['Regen'] = {head="Runeist Bandeau +1", legs="Futhark Trousers +1"}
     sets.midcast['Stoneskin'] = {waist="Siegel Sash"}
@@ -116,10 +116,23 @@ function init_gear_sets()
 	-- Idle/resting/defense/etc sets
 	--------------------------------------
 
-    sets.idle = {ammo='Inlamvuyeso',
-            head="Ocelomeh Headpiece +1", neck="Wiglen Gorget", ear1="Ethereal earring", ear2="Moonshade earring",
-            body="Futhark Coat +1", hands="Umuthi Gloves", ring1="Sheltered Ring", ring2="Paguroidea ring",
-            back="Evasionist's Cape", waist="Flume Belt", legs="Runeist Trousers +1", feet="Skadi's jambeaux +1"}
+    sets.idle = {	
+	main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
+    sub="Uther's Grip",
+    ammo="Staunch Tathlum",
+    head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
+    body={ name="Futhark Coat +1", augments={'Enhances "Elemental Sforzo" effect',}},
+    hands="Turms Mittens",
+    legs="Ayanmo Cosciales",
+    feet="Turms Leggings",
+    neck="Futhark Torque +1",
+    waist="Flume Belt",
+    left_ear="Eabani Earring",
+    right_ear="Tuisto Earring",
+    left_ring="Ayanmo Ring",
+    right_ring="Vocane Ring",
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+3','Enmity+10','Phys. dmg. taken-10%',}}}
+	
     sets.idle.Refresh = set_combine(sets.idle, {body="Runeist Coat +1", waist="Fucho-no-obi"})
            
 	sets.defense.PDT = {}
@@ -134,23 +147,24 @@ function init_gear_sets()
 	--------------------------------------
 
     sets.engaged = {    
-	main="Aettir",
+	main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
     sub="Uther's Grip",
-    ammo="Hagneia Stone",
-    head="Aya. Zucchetto",
-    body={ name="Futhark Coat", augments={'Enhances "Elemental Sforzo" effect',}},
-    hands="Aya. Manopolas +1",
-    legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}},
-    feet="Aya. Gambieras +1",
-    neck="Inq. Bead Necklace",
-    waist="Soil Belt",
+    ammo="Staunch Tathlum",
+    head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
+    body={ name="Futhark Coat +1", augments={'Enhances "Elemental Sforzo" effect',}},
+    hands="Turms Mittens",
+    legs="Ayanmo Cosciales",
+    feet="Turms Leggings",
+    neck="Futhark Torque +1",
+    waist="Flume Belt",
     left_ear="Eabani Earring",
-    right_ear="Steelflash Earring",
+    right_ear="Tuisto Earring",
     left_ring="Ayanmo Ring",
-    right_ring="Rajas Ring",
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+8 /Mag. Eva.+8','Mag. Evasion+1','Enmity+1','Phys. dmg. taken-2%',}},}
+    right_ring="Vocane Ring",
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+3','Enmity+10','Phys. dmg. taken-10%',}}}
+	
     sets.engaged.DD = {ammo="Ginsen",
-            head="Felistris Mask", neck="Asperity Necklace", ear1="Bladeborn Earring", ear2="Steelflash Earring",
+            head="Felistris Mask", neck="Asperity Necklace", ear1="Bladeborn Earring", ear2="Tuisto Earring",
             body="Thaumas Coat", hands="Futhark Mitons +1", ring1="Epona's Ring", ring2="Rajas Ring",
             back="Atheling Mantle", waist="Windbuffet Belt", legs="Quiahuiz Trousers", feet="Qaaxo Leggings"}
     sets.engaged.Acc = set_combine(sets.engaged.DD, {sub="Tzacab Grip", ammo="Honed Tathlum", head="Whirlpool Mask",
@@ -269,8 +283,6 @@ function update_timers(spell)
     local cmd_queue = create_timer(entry).. ';wait 0.05;'
     
     cmd_queue = cmd_queue .. trim()
-
-    add_to_chat(123,'cmd_queue='..cmd_queue)
 
     send_command(cmd_queue)
 end

@@ -1,0 +1,1 @@
+input /ma Flash <bt>; wait 3; input /ja Valiance <me>; wait 2; input /ma Foil <me>; wait 4; input /ma Jettatura <bt>; wait 4; input /ja Pflug <me>; wait 4; input /ja Odyllic Subterfuge <bt>; wait 4; /input /ma Flash <bt>; wait 3; input /ma Geist Wall <bt>; wait 5; input /ma Crusade <me>;
