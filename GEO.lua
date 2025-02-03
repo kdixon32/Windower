@@ -130,7 +130,7 @@ include('GEO_Lib.lua')          -- leave this as is
 --------------------------------------------------------------------------------------------------------------
 
 geomancy:set('Geo-Frailty')     -- Geo Spell Default      (when you first load lua / change jobs the saved spells is this one)
-indicolure:set('Indi-Haste')    -- Indi Spell Default     (when you first load lua / change jobs the saved spells is this one)
+indicolure:set('Indi-Fury')    -- Indi Spell Default     (when you first load lua / change jobs the saved spells is this one)
 validateTextInformation()
 
 -- Optional. Swap to your geo macro sheet / book
@@ -152,10 +152,10 @@ function get_sets()
 
     -- Your idle set when you DON'T have a luopan out
     sets.me.idle.normal = {
-		main="Solstice",
+		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
 		range="Dunna",
-		head="Geomancy Galero",
-		body="Geo. Tunic +1",
+		head={ name="Bagua Galero +2", augments={'Enhances "Primeval Zeal" effect',}},
+		body="Jhakri Robe +2",
 		hands={ name="Bagua Mitaines", augments={'Enhances "Curative Recantation" effect',}},
 		legs="Assiduity Pants",
 		feet="Geomancy Sandals",
@@ -164,7 +164,7 @@ function get_sets()
 		left_ear="Aredan Earring",
 		right_ear="Hecate's Earring",
 		left_ring="Renaye Ring",
-		right_ring="Stikini Ring",
+		right_ring="Defending Ring",
 		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
     }
 	
@@ -193,20 +193,21 @@ function get_sets()
     -- Luopan's Out --  notice sets.pan 
     -- This is the base for all perpetuation scenarios, as seen below
     sets.pan.idle.normal = {
-		main="Solstice",
+		main="Terra's Staff",
+		sub="Mensch Strap +1",
 		range="Dunna",
-		head="Geomancy Galero",
-		body="Geo. Tunic +1",
-		hands={ name="Bagua Mitaines", augments={'Enhances "Curative Recantation" effect',}},
+		head={ name="Bagua Galero +2", augments={'Enhances "Primeval Zeal" effect',}},
+		body="Jhakri Robe +2",
+		hands="Geo. Mitaines +2",
 		legs="Assiduity Pants",
-		feet="Geomancy Sandals",
+		feet={ name="Bagua Sandals +1", augments={'Enhances "Radial Arcana" effect',}},
 		neck="Sanctity Necklace",
 		waist="Witful Belt",
-		left_ear="Aredan Earring",
+		left_ear="Handler's Earring +1",
 		right_ear="Hecate's Earring",
 		left_ring="Renaye Ring",
-		right_ring="Stikini Ring",
-		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
+		right_ring="Defending Ring",
+		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+10','Pet: "Regen"+5',}},
     }
 	
 	-- This is when you have a Luopan out but want to sacrifice some slot for master DT, put those slots in.
@@ -244,6 +245,24 @@ function get_sets()
     sets.me["Exudation"] = {
 
     } 
+	sets.me["Hexa Strike"] = {
+	main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
+    sub="Janus Guard",
+    range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+    head="Jhakri Coronal +2",
+    body="Jhakri Robe +2",
+    hands="Jhakri Cuffs +2",
+    legs="Jhakri Slops +2",
+    feet="Jhakri Pigaches +2",
+    neck="Sanctity Necklace",
+    waist="Salire Belt",
+    left_ear="Steelflash Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Stikini Ring",
+    right_ring="Stikini Ring",
+    back="Seshaw Cape"
+	}
+
     -- Feel free to add new weapon skills, make sure you spell it the same as in game.
   
     ---------------
@@ -261,7 +280,7 @@ function get_sets()
       
     -- Generic Casting Set that all others take off of. Here you should add all your fast cast  
     sets.precast.casting = {
-		main="Solstice",
+		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
 		range="Dunna",
 		head={ name="Merlinic Hood", augments={'Mag. Acc.+21','"Fast Cast"+7','CHR+3',}},
 		body={ name="Bagua Tunic", augments={'Enhances "Bolster" effect',}},
@@ -274,7 +293,7 @@ function get_sets()
 		right_ear="Loquac. Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
-		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
+		back={ name="Nantosuelta's Cape", augments={'"Fast Cast"+10',}}
     }   
 
     sets.precast.geomancy = set_combine(sets.precast.casting,{
@@ -309,13 +328,13 @@ function get_sets()
     	body = "Bagua Tunic +1",
     }
     sets.precast["Primeval Zeal"] = {
-    	head = "Bagua Galero +1",
+    	head={ name="Bagua Galero +2", augments={'Enhances "Primeval Zeal" effect',}},
     }  
     sets.precast["Cardinal Chant"] = {
     	head = "Geomancy Galero",
     }  
     sets.precast["Full Circle"] = {
-    	head = "Azimuth Hood +1",
+    	head = "Azimuth Hood",
     }  
     sets.precast["Curative Recantation"] = {
     	hands = "Bagua Mitaines +1",
@@ -338,15 +357,15 @@ function get_sets()
 	
 	-- For Geo spells /
     sets.midcast.geo = set_combine(sets.midcast.casting,{
-		main="Solstice",
+		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
 		range="Dunna",
 		head="Azimuth Hood",
 		body={ name="Bagua Tunic", augments={'Enhances "Bolster" effect',}},
-		hands="Geo. Mitaines +1",
+		hands="Geo. Mitaines +2",
 		legs={ name="Bagua Pants", augments={'Enhances "Mending Halation" effect',}},
 		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+21','"Fast Cast"+5','MND+5','"Mag.Atk.Bns."+1',}},
 		neck="Sanctity Necklace",
-		waist="Witful Belt",
+		waist="Austerity Belt",
 		left_ear="Handler's Earring +1",
 		right_ear="Hecate's Earring",
 		left_ring="Renaye Ring",
@@ -355,15 +374,15 @@ function get_sets()
     })
 	-- For Indi Spells
     sets.midcast.indi = set_combine(sets.midcast.geo,{
-		main="Solstice",
+		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
 		range="Dunna",
 		head="Azimuth Hood",
 		body={ name="Bagua Tunic", augments={'Enhances "Bolster" effect',}},
-		hands="Geo. Mitaines +1",
+		hands="Geo. Mitaines +2",
 		legs={ name="Bagua Pants + 1", augments={'Enhances "Mending Halation" effect',}},
 		feet="Azimuth Gaiters",
 		neck="Sanctity Necklace",
-		waist="Witful Belt",
+		waist="Austerity Belt",
 		left_ear="Handler's Earring +1",
 		right_ear="Hecate's Earring",
 		left_ring="Renaye Ring",
@@ -377,12 +396,12 @@ function get_sets()
 	
 	-- Nuking
     sets.midcast.nuking.normal = set_combine(sets.midcast.casting,{
-		main="Solstice",
+		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
 		sub="Janus Guard",
 		range="Dunna",
 		head="Jhakri Coronal +2",
-		body="Jhakri Robe +2",
-		hands="Jhakri Cuffs +2",
+		body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+		hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
 		legs="Jhakri Slops +2",
 		feet="Jhakri Pigaches +2",
 		neck="Sanctity Necklace",
@@ -394,12 +413,12 @@ function get_sets()
 		back="Seshaw Cape"
     })
 	sets.midcast.MB.normal = set_combine(sets.midcast.nuking.normal, {
-		main="Solstice",
+		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
 		sub="Janus Guard",
 		range="Dunna",
 		head="Jhakri Coronal +2",
-		body="Jhakri Robe +2",
-		hands="Jhakri Cuffs +2",
+		body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+		hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
 		legs="Jhakri Slops +2",
 		feet="Jhakri Pigaches +2",
 		neck="Sanctity Necklace",

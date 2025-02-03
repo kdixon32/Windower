@@ -118,7 +118,7 @@ function init_gear_sets()
 
     sets.idle = {	
 	main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
-    sub="Uther's Grip",
+    sub="Mensch Strap",
     ammo="Staunch Tathlum",
     head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
     body={ name="Futhark Coat +1", augments={'Enhances "Elemental Sforzo" effect',}},
@@ -129,7 +129,7 @@ function init_gear_sets()
     waist="Flume Belt",
     left_ear="Eabani Earring",
     right_ear="Tuisto Earring",
-    left_ring="Ayanmo Ring",
+    left_ring="Defending Ring",
     right_ring="Vocane Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+3','Enmity+10','Phys. dmg. taken-10%',}}}
 	
@@ -148,7 +148,7 @@ function init_gear_sets()
 
     sets.engaged = {    
 	main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
-    sub="Uther's Grip",
+    sub="Mensch Strap",
     ammo="Staunch Tathlum",
     head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
     body={ name="Futhark Coat +1", augments={'Enhances "Elemental Sforzo" effect',}},
@@ -159,7 +159,7 @@ function init_gear_sets()
     waist="Flume Belt",
     left_ear="Eabani Earring",
     right_ear="Tuisto Earring",
-    left_ring="Ayanmo Ring",
+    left_ring="Defending Ring",
     right_ring="Vocane Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+3','Enmity+10','Phys. dmg. taken-10%',}}}
 	

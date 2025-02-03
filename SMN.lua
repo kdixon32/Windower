@@ -147,10 +147,22 @@ function init_gear_sets()
     -- Precast sets to enhance JAs
     sets.precast.JA['Astral Flow'] = {head="Glyphic Horn"}
     
-    sets.precast.JA['Elemental Siphon'] = {main="Soulscourge",
-        head="Convoker's Horn",neck="Caller's Pendant",
-        body="Caller's Doublet +2",hands="Glyphic Bracers",ring1="Evoker's Ring",ring2="Fervor Ring",
-        legs="Marduk's Shalwar +1",feet="Caller's Pigaches +2"}
+    sets.precast.JA['Elemental Siphon'] = {main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
+		sub="Vox Grip",
+		ammo="Sancus Sachet +1",
+		head="Baayami Hat",
+		body="Baayami Robe",
+		hands="Baayami Cuffs",
+		legs="Baayami Slops",
+		feet="Glyphic Pigaches",
+		neck="Caller's Pendant",
+		waist="Jaq'ij Sash",
+		left_ear="Lodurr Earring",
+		right_ear="Gelos Earring",
+		left_ring="Zodiac Ring",
+		right_ring="Evoker's Ring",
+		back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},
+}
 
     sets.precast.JA['Mana Cede'] = {hands="Caller's Bracers +2"}
 
@@ -159,7 +171,7 @@ function init_gear_sets()
 	    main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
 		sub="Vox Grip",
 		ammo="Sancus Sachet +1",
-		head="Convoker's Horn",
+		head="Baayami Hat",
 		body="Baayami Robe",
 		hands="Baayami Cuffs",
 		legs="Baayami Slops",
@@ -208,7 +220,7 @@ function init_gear_sets()
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Myrkr'] = {
         head="Nahtirah Hat",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Convoker's Doublet",hands="Caller's Bracers +2",ring1="Evoker's Ring",ring2="Sangoma Ring",
+        body="Convoker's Doublet +2",hands="Caller's Bracers +2",ring1="Evoker's Ring",ring2="Sangoma Ring",
         back="Pahtli Cape",waist="Fucho-no-Obi",legs="Nares Trews",feet="Chelona Boots +1"}
 
     
@@ -261,7 +273,7 @@ function init_gear_sets()
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
     head="Convoker's Horn",
-    body="Con. Doublet +1",
+    body="Con. Doublet +2",
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Baayami Slops",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -277,10 +289,10 @@ function init_gear_sets()
     
     sets.midcast.Pet.PhysicalBloodPactRage = {    
 	main={ name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
-    sub="Elan Strap",
+    sub="elan strap +1",
     ammo="Sancus Sachet +1",
     head={ name="Apogee Crown", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
-    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+	body="Con. Doublet +2",
     hands={ name="Merlinic Dastanas", augments={'Pet: Mag. Acc.+17 Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -2%','Pet: AGI+8','Pet: "Mag.Atk.Bns."+13',}},
 	legs={ name="Apogee Slacks", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -296,10 +308,10 @@ function init_gear_sets()
 
     sets.midcast.Pet.MagicalBloodPactRage = {    
 	main={ name="Grioavolr", augments={'Blood Pact Dmg.+4','Pet: INT+1','Pet: Mag. Acc.+17','Pet: "Mag.Atk.Bns."+28',}},
-    sub="Elan Strap",
+    sub="elan strap +1",
     ammo="Sancus Sachet +1",
     head={ name="Apogee Crown", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
-    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Merlinic Dastanas", augments={'Pet: Mag. Acc.+17 Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -2%','Pet: AGI+8','Pet: "Mag.Atk.Bns."+13',}},
     legs={ name="Apogee Slacks", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -332,7 +344,7 @@ function init_gear_sets()
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
     head="Convoker's Horn",
-    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -348,7 +360,7 @@ function init_gear_sets()
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
     head="Convoker's Horn",
-    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+     body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -363,7 +375,7 @@ function init_gear_sets()
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
     head="Convoker's Horn",
-    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -399,7 +411,7 @@ function init_gear_sets()
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
     head="Convoker's Horn",
-    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -414,7 +426,7 @@ function init_gear_sets()
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
     head="Convoker's Horn",
-    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -429,7 +441,7 @@ function init_gear_sets()
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
     head="Convoker's Horn",
-    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -444,7 +456,7 @@ function init_gear_sets()
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
     head="Convoker's Horn",
-    body={ name="Apogee Dalmatica", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
+    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
@@ -490,8 +502,21 @@ function init_gear_sets()
     --------------------------------------
     
     -- Normal melee group
-    sets.engaged = {
-	}
+    sets.engaged = {main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
+    sub="Vox Grip",
+    ammo="Sancus Sachet +1",
+    head="Convoker's Horn",
+    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
+    legs="Assid. Pants +1",
+    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    neck="Caller's Pendant",
+    waist="Klouskap Sash",
+    left_ear="Gifted Earring",
+    left_ring="Woltaris Ring",
+    right_ring="Evoker's Ring",
+    back="Campestres's Cape"}
+	
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -644,10 +669,37 @@ function job_self_command(cmdParams, eventArgs)
     elseif cmdParams[1]:lower() == 'pact' then
         handle_pacts(cmdParams)
         eventArgs.handled = true
-    elseif cmdParams[1] == 'reset_ward_flag' then
+    elseif cmdParams[1]:lower() == 'reset_ward_flag' then
         wards.flag = false
         wards.spell = ''
         eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'carbuncle' then
+		recast_ward("Carbuncle")
+		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'titan' then
+		recast_ward("Titan")
+		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'leviathan' then
+		recast_ward("Leviathan")
+		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'garuda' then
+		recast_ward("Garuda")
+		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'ifrit' then
+		recast_ward("Ifrit")
+		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'shiva' then
+		recast_ward("Shiva")
+		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'ramuh' then
+		recast_ward("Ramuh")
+		eventArgs.handled = true
+	elseif cmdParams[1]:lower() == 'fenrir' then
+		recast_ward("Fenrir")
+		eventArgs.handled = true
+	elseif cmdParams[1] == 'cait' then
+		recast_ward("Fenrir")
+		eventArgs.handled = true
     end
 end
 
@@ -688,6 +740,57 @@ function handle_petweather()
 end
 
 
+
+function recast_ward(targetavatar)
+	if areas.Cities:contains(world.area) then
+        add_to_chat(122, 'Cannot use Blood Pact in a city area.')
+        return
+    end
+	
+	local releasedAvatar
+    local dontRelease
+	local command = ''
+    local releaseWait = 0
+	
+	
+	if pet.isvalid and pet.name == targetavatar then --if current pet is the target, do not release
+		dontRelease = true
+	end
+	
+	if not pet.isvalid then
+		command = command..'input /ma "'..targetavatar..'" <me>;wait 6;'
+		releasedAvatar = 'none'
+	end
+	
+	if pet.isvalid and avatars:contains(pet.name) and pet.name ~= targetavatar then --If there is a currently a different avatar out, save it and summon the target
+		command = command..'input /pet "Release" <me>;wait 1.1;'
+		command = command..'input /ma "'..targetavatar..'" <me>;wait 6;'
+        releasedAvatar = pet.name
+        releaseWait = 6
+    end
+	
+	command = command..'input //gs c pact buffOffense;' --Cast Blood Pact
+    releaseWait = releaseWait - 1
+    releaseWait = releaseWait + 0.1
+    
+    if not dontRelease and releasedAvatar ~= 'none' then --Resummon previous avatar if we need to
+        if releaseWait > 0 then
+            command = command..'wait '..tostring(releaseWait)..';'
+        else
+            command = command..'wait 1.1;'
+        end
+        
+        command = command..'input /pet "Release" <me>;'
+    end
+	
+    if releasedAvatar then
+        command = command..'wait 1.1;input /ma "'..releasedAvatar..'" <me>;'
+		command = command..'wait 6;input /pet assault <bt>;wait 20; send Bonkugon /p Ward Ready;'
+    end
+    
+    send_command(command)
+end
+	
 -- Custom uber-handling of Elemental Siphon
 function handle_siphoning()
     if areas.Cities:contains(world.area) then

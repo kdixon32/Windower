@@ -110,12 +110,12 @@ function init_gear_sets()
     gear.default.obi_waist = "Goading Belt"
     gear.default.obi_back = "Mending Cape"
 
-    sets.midcast.CureSolace = {main="Iridal Staff",
-    sub="Vivid Strap",
+    sets.midcast.CureSolace = {main="Chatoyant Staff",
+    sub="Mensch Strap",
     ammo="Impatiens",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Theo. Bliaut +1",
-    hands="Theo. Mitts +1",
+    hands="Theo. Mitts +2",
     legs="Miasmic Pants",
     feet="Inyan. Crackows +1",
     neck="Cleric's Torque",
@@ -128,12 +128,12 @@ function init_gear_sets()
 	}
 
     sets.midcast.Cure = {    
-	main="Iridal Staff",
-    sub="Vivid Strap",
+	main="Chatoyant Staff",
+    sub="Mensch Strap",
     ammo="Impatiens",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Theo. Bliaut +1",
-    hands="Theo. Mitts +1",
+    hands="Theo. Mitts +2",
     legs="Miasmic Pants",
     feet="Inyan. Crackows +1",
     neck="Cleric's Torque",
@@ -146,12 +146,12 @@ function init_gear_sets()
 	}
 
     sets.midcast.Curaga = {    
-	main="Iridal Staff",
-    sub="Vivid Strap",
+	main="Chatoyant Staff",
+    sub="Mensch Strap",
     ammo="Impatiens",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Theo. Bliaut +1",
-    hands="Theo. Mitts +1",
+    hands="Theo. Mitts +2",
     legs="Miasmic Pants",
     feet="Inyan. Crackows +1",
     neck="Cleric's Torque",
@@ -170,7 +170,7 @@ function init_gear_sets()
 
     sets.midcast.Cursna = {main="Beneficus",sub="Genbu's Shield",
         head="Orison Cap +2",neck="Malison Medallion",
-        body="Orison Bliaud +2",hands="Hieros Mittens",ring1="Ephedra Ring",ring2="Sirona's Ring",
+        body="Orison Bliaut +2",hands="Hieros Mittens",ring1="Ephedra Ring",ring2="Sirona's Ring",
         back="Mending Cape",waist="Goading Belt",legs="Theophany Pantaloons",feet="Gendewitha Galoshes"}
 
     sets.midcast.StatusRemoval = {
@@ -201,7 +201,7 @@ function init_gear_sets()
 
     sets.midcast.Regen = {
 		main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
-        body="Piety Briault",hands="Ebers Mitts",
+        body="Piety Bliaut",hands="Ebers Mitts",
 		head="Inyanga Tiara +2",
         legs="Theophany Pantaloons"}
 
@@ -242,8 +242,8 @@ function init_gear_sets()
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {    
-	main="Iridal Staff",
-    sub="Vivid Strap",
+	main="Chatoyant Staff",
+    sub="Mensch Strap",
     ammo="Impatiens",
     head="Inyanga Tiara +2",
     body="Theophany Bliaut +1",
@@ -299,6 +299,7 @@ function init_gear_sets()
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
+		main={ name="Grioavolr", augments={'"Fast Cast"+6','MP+5','Mag. Acc.+10','"Mag.Atk.Bns."+12',}},
         head="Nahtirah Hat",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
         body="Vanir Cotehardie",hands="Dynasty Mitts",ring1="Rajas Ring",ring2="K'ayres Ring",
         back="Umbra Cape",waist="Goading Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
