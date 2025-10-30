@@ -1,0 +1,1 @@
+send Bonkugon /ws Impulse Drive <t>; wait 5; send Keldeo /ws Savage Blade <t>; wait 5; send Chocopon /ws Evisceration <t>; wait 6; send Bonkugon /ws Impulse Drive <t>; wait 6; send Chocopon /ws Evisceration <t>;

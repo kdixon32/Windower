@@ -1,0 +1,1 @@
+send Keldeo /ws Chant Du Cygne <t>; send Ecclesia /ja Theurgic Focus <me>; wait 4; send Roxion /ws Evisceration <t>;

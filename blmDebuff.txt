@@ -1,1 +1,1 @@
-input /ma Poison II <bt>; wait 3; input /ma Rasp <bt>; wait 3; input /ma Drown <bt>; wait 3; input /ma Frost <bt>; wait 3;
+input /ma Poison II <bt>; wait 3; input /ma Rasp <bt>; wait 4; input /ma Drown <bt>; wait 4; input /ma Frost <bt>;

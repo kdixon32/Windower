@@ -1,0 +1,1 @@
+input /ma Valor Minuet V <me>; wait 5; input /ma Victory March; wait 5; setkey n down; wait .3; setkey n up; input /ma Vivacious Etude <me>; wait 5; input /ma Blade Madrigal <me>;

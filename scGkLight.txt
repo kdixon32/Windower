@@ -1,0 +1,1 @@
+send Chocopon /ja Box Step <t>; send Bonkugon /ws Tachi:Ageha <t>; wait 4; send Chocopon /ws Evisceration <t>; wait 4; send Keldeo /ws Savage Blade <t>; wait 4; Send Bonkugon /ws Tachi:Kasha <t>; wait 5; send Keldeo /ws Savage Blade <t>; wait 4; send Bonkugon /ws Tachi:Fudo <t>;

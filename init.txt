@@ -11,20 +11,24 @@ lua load SendAllTarget
 lua load superwarp
 lua load enemybar2
 lua load xivparty
+lua load autofps
+lua load followall
 
 bind f12 showfps
 bind sysrq screenshot jpg hide
 bind ^v paste
 
-bind numlock send @others /follow Roxion
-bind !numlock send Aluber /follow Roxion; send Keldeo /follow Roxion; send Ecclesia /follow Roxion;
-bind !enter sat youattack Roxion; sat youattack Aluber; sat youattack Keldeo; send Bonkugon /pet Assault <tid>; wait 1; send Bonkugon /target <tid>
-bind ^enter sat allattack; wait 1; send Bonkugon /pet Assault <tid>; wait 1; send Bonkugon /target <tid>
+bind numlock followall
+bind !numlock send Aluber /follow Chocopon; send Keldeo /follow Chocopon; send Ecclesia /follow Chocopon; send Bonkugon /follow Chocopon
+bind !enter sat youattack Chocopon; sat youattack Aluber; sat youattack Keldeo; sat youattack Bonkugon;
+bind ^enter sat allattack; 
 bind ^numlock send @all exec unfol
-bind !^p send Roxion /pcmd add Ecclesia; wait 2; send Roxion /pcmd add Bonkugon; wait 2; send Roxion /pcmd add Apollousa; wait 2; send Roxion /pcmd add Keldeo; wait 2; send Roxion /pcmd add Aluber; wait 2; send @all exec alias
+bind !^p send Chocopon /pcmd add Ecclesia; wait 2; send Chocopon /pcmd add Bonkugon; wait 2; send Chocopon /pcmd add Apollousa; wait 2; send Chocopon /pcmd add Keldeo; wait 2; send Chocopon /pcmd add Aluber; wait 2; send @all exec alias
 
-bind %m send Roxion /mount Fenrir; send Bonkugon /mount Fenrir; send Ecclesia /mount Ixion; send Apollousa /mount Byakko; send Keldeo /mount Byakko; send Aluber /mount Byakko;
+bind %m send Chocopon /mount Fenrir; send Bonkugon /mount Fenrir; send Ecclesia /mount Ixion; send Apollousa /mount Byakko; send Keldeo /mount Byakko; send Aluber /mount Byakko;
 bind ~%m send @all send @all /dismount
+
+bind %. send Chocopon wsspam
 
 bind !numpad2 send Ecclesia /ma Stone V <tid>; 
 bind ^numpad2 send Ecclesia /ma Stone IV <tid>; 
@@ -39,17 +43,18 @@ bind ^numpad6 send Ecclesia /ma Blizzard IV <tid>;
 bind !numpad7 send Ecclesia /ma Thunder V <tid>; 
 bind ^numpad7 send Ecclesia /ma Thunder IV <tid>; 
 
-bind ~numpad0 send Ecclesia /ma Sleepga <tid>; send Bonkugon //gs c pact sleep
+bind ~numpad0 send Bonkugon gs c pact sleep
 bind ~numpad1 send Bonkugon gs c pact buffOffense; wait 29; send Bonkugon /p Ward Ready
 bind ~numpad2 send Bonkguon gs c pact debuff1; wait 29; send Bonkugon /p Ward Ready
 bind ~numpad3 send Bonkugon gs c pact curaga; wait 29; send Bonkugon /p Ward Ready
-bind ~numpad4 send Bonkugon gs c pact buffSpecial; wait 29; send Bonkugon /p Ward Ready  
-bind ~numpad5 send Bonkugon gs c pact buffDefense; wait 29; send Bonkugon /p Ward Ready
-bind ~numpad6 send Bonkugon gs c pact bp70; wait 29; send Bonkugon /p Ward Ready
-bind ~numpad9 send Bonkugon gs c siphon
+bind ~numpad4 send Chocopon /ma Chocobo Mazurka <me>; send Bonkugon gs c pact buffSpecial; wait 29; send Bonkugon /p Ward Ready; 
+bind ~numpad5 send Bonkugon gs c pact bp75; wait 29; send Bonkugon /p Ward Ready
+bind ~numpad6 send Bonkugon gs c pact bp70; 
 
 
-bind ~%1 send Bonkugon /pet release <me>
+
+bind ~%` send Bonkugon /pet release <me>
+bind ~%1 send Bonkugon /ma Carbuncle <me>
 bind ~%2 send Bonkugon /ma Titan <me>
 bind ~%3 send Bonkugon /ma Leviathan <me>
 bind ~%4 send Bonkugon /ma Garuda <me>
@@ -60,32 +65,70 @@ bind ~%8 send Bonkugon /ma Diabolos <me>
 bind ~%9 send Bonkugon /ma Fenrir <me>
 bind ~%0 send Bonkugon /ma Cait Sith <me>
 
-bind ^f1 send Keldeo /ma Cure IV Roxion;
+bind ^f1 send Keldeo /ma Cure IV Chocopon;
 bind ^f2 send Keldeo /ma Cure IV Ecclesia; 
 bind ^f3 send Keldeo /ma Cure IV Bonkugon; 
 bind ^f4 send Keldeo /ma Cure IV Apollousa;
 bind ^f5 send Keldeo /ma Cure IV <me>; 
 bind ^f6 send Keldeo /ma Cure IV Aluber; 
 
-bind %1 send Apollousa /ma Cure IV Roxion
+bind %1 send Apollousa /ma Cure IV Chocopon
 bind %2 send Apollousa /ma Cure IV Ecclesia
 bind %3 send Apollousa /ma Cure IV Bonkugon
 bind %4 send Apollousa /ma Cure IV <me>
 bind %5 send Apollousa /ma Cure IV Keldeo
 bind %6 send Apollousa /ma Cure IV Aluber 
-bind %7 send Apollousa /ma Curaga III Roxion
-bind %8 send Apollousa /ma Curaga II Roxion
-bind %9 send Apollousa /ma Curaga Roxion
+bind %7 send Apollousa /ma Curaga III Chocopon
+bind %8 send Apollousa /ma Curaga II Chocopon
+bind %9 send Apollousa /ma Curaga Chocopon
 bind %0 send Aluber /ma Healing Breeze <me>
 
-bind ~f1 send Bonkugon /ma Cure IV Roxion
-bind ~f2 send Bonkugon /ma Cure IV Ecclesia
-bind ~f3 send Bonkugon /ma Cure IV <me>
-bind ~f4 send Bonkugon /ma Cure IV Apollousa
-bind ~f5 send Bonkugon /ma Cure IV Keldeo
-bind ~f6 send Bonkugon /ma Cure IV Aluber
+bind ~f1 send Ecclesia /ma Cure IV Chocopon
+bind ~f2 send Ecclesia /ma Cure IV <me>
+bind ~f3 send Ecclesia /ma Cure IV Bonkugon
+bind ~f4 send Ecclesia /ma Cure IV Apollousa
+bind ~f5 send Ecclesia /ma Cure IV Keldeo
+bind ~f6 send Ecclesia /ma Cure IV Aluber
 
+//Set console variables
+console_position 15 50
+console_color 255 255 0 0
+console_displayactivity 1
+console_fadedelay 3500
+console_chatopen 1
+console_screendir screenshots
 
+//Set game variables
+game_forceambientlight 0
+game_ambientlight 255 75 75 75
+game_gamma 50
+game_allowsetcursorpos 0
+game_exittype 1
+game_exitprompt 1
+game_allowresize 0
+
+//Set general variables
+//showfps 1
+// FPS Position - Use -75 1 to position it on the top right corner.
+fps_position 20 20 //top left
+//fps_position -75 1 //top right
+
+rawdistance set 10
+//Bind keys
+//Bind syntax is "bind <key> <up> <command>
+// ^ represents control- and ! is alt, eg !1 is alt-1
+bind !f10 drawdistance set 10
+bind ^f10 drawdistance set 1
+bind %end game_forceambientlight
+bind sysrq screenshot png hide
+bind ^v paste
+echo Toggle Lighting = End (Bump mapping must be off to work properly)
+echo Toggle FPS = F12
+echo DrawDistance Lv 10: Alt-F10
+echo DrawDistance Lv 1: Ctrl-F10
+echo Paste Clipboard = Ctrl-V
+
+Pivot a NextLore
 
 
 

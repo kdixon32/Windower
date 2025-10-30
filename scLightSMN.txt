@@ -1,0 +1,1 @@
+send Keldeo /ws Savage Blade <t>; wait 4; send Bonkugon /pet Flaming Crush <bt>; wait 6; send Keldeo /ws Chant Du Cygne <t>

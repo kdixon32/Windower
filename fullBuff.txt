@@ -1,0 +1,1 @@
+send Keldeo exec rdmBuff; send Apollousa exec whmBuff; send Bonkugon /ja hasso <me>; wait 4; send Bonkugon /ja Meditate <me>;

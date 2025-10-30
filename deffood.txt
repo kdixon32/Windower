@@ -1,0 +1,1 @@
+send Ecclesia /item \"Pear Crepe\" <me>; send Aluber /item \"Black Curry Bun\" <me>; send Bonkugon /item \"Black Curry Bun\" <me>; send Keldeo /item \"Black Curry Bun\" <me>; send Roxion /item \"Black Curry Bun\" <me>; send Apollousa /item \"Black Curry Bun\" <me>

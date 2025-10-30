@@ -1,0 +1,1 @@
+input /ja Accession <me>; wait 1.5; input /ma Sneak <me>; wait 4; input /ja Accession <me>; wait 1.5; input /ma Invisible <me>;
