@@ -67,14 +67,14 @@ function job_setup()
     pacts = {}
     pacts.cure = {['Carbuncle']='Healing Ruby'}
     pacts.curaga = {['Carbuncle']='Healing Ruby II', ['Garuda']='Whispering Wind', ['Leviathan']='Spring Water'}
-    pacts.buffoffense = {['Carbuncle']='Glittering Ruby', ['Ifrit']='Crimson Howl', ['Garuda']='Hastega II', ['Ramuh']='Rolling Thunder',
+    pacts.buffoffense = {['Carbuncle']='Glittering Ruby', ['Titan']='Earthen Armor', ['Ifrit']='Crimson Howl', ['Garuda']='Hastega II', ['Ramuh']='Rolling Thunder',
         ['Fenrir']='Ecliptic Growl', ['Shiva']='Crystal Blessing'}
-    pacts.buffdefense = {['Carbuncle']='Shining Ruby', ['Shiva']='Frost Armor', ['Garuda']='Aerial Armor', ['Titan']='Earthen Armor',
+    pacts.buffdefense = {['Carbuncle']='Shining Ruby', ['Shiva']='Frost Armor', ['Garuda']='Aerial Armor', 
         ['Ramuh']='Lightning Armor', ['Fenrir']='Ecliptic Howl', ['Diabolos']='Noctoshield', ['Cait Sith']='Reraise II'}
     pacts.buffspecial = {['Ifrit']='Inferno Howl', ['Garuda']='Fleet Wind', ['Titan']='Earthen Ward', ['Diabolos']='Dream Shroud',
         ['Carbuncle']='Soothing Ruby', ['Fenrir']='Heavenward Howl', ['Cait Sith']='Raise II'}
     pacts.debuff1 = {['Shiva']='Diamond Storm', ['Ramuh']='Shock Squall', ['Leviathan']='Tidal Roar', ['Fenrir']='Impact',
-        ['Diabolos']='Pavor Nocturnus', ['Cait Sith']='Eerie Eye'}
+        ['Diabolos']='Pavor Nocturnus', ['Cait Sith']='Mewing Lullaby'}
     pacts.debuff2 = {['Shiva']='Sleepga', ['Leviathan']='Slowga', ['Fenrir']='Lunar Roar', ['Diabolos']='Somnolence'}
     pacts.sleep = {['Shiva']='Sleepga', ['Diabolos']='Nightmare', ['Cait Sith']='Mewing Lullaby'}
     pacts.nuke2 = {['Ifrit']='Fire II', ['Shiva']='Blizzard II', ['Garuda']='Aero II', ['Titan']='Stone II',
@@ -154,9 +154,9 @@ function init_gear_sets()
 		body="Baayami Robe",
 		hands="Baayami Cuffs",
 		legs="Baayami Slops",
-		feet="Glyphic Pigaches",
+		feet="Baayami Sabots +1",
 		neck="Caller's Pendant",
-		waist="Jaq'ij Sash",
+		waist="Lucidity Sash",
 		left_ear="Lodurr Earring",
 		right_ear="Gelos Earring",
 		left_ring="Zodiac Ring",
@@ -171,13 +171,13 @@ function init_gear_sets()
 	    main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
 		sub="Vox Grip",
 		ammo="Sancus Sachet +1",
-		head="Baayami Hat",
+		head="Beckoner's Horn +1",
 		body="Baayami Robe",
 		hands="Baayami Cuffs",
 		legs="Baayami Slops",
-		feet="Glyphic Pigaches",
+		feet="Baayami Sabots +1",
 		neck="Caller's Pendant",
-		waist="Jaq'ij Sash",
+		waist="Lucidity Sash",
 		left_ear="Lodurr Earring",
 		right_ear="Gelos Earring",
 		left_ring="Fervor Ring",
@@ -202,8 +202,8 @@ function init_gear_sets()
     waist="Klouskap Sash",
     left_ear="Gifted Earring",
 	right_ear="Loquac. Earring",
-    left_ring="Varar Ring",
-    right_ring="Varar Ring",
+    left_ring="Varar Ring +1",
+    right_ring="Varar Ring +1",
     back={ name="Campestres's Cape", augments={'Fast Cast+10%',}}
 }	
 
@@ -260,30 +260,30 @@ function init_gear_sets()
     body="Baayami Robe",
     hands="Baayami Cuffs",
 	legs="Baayami Slops",
-    feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    feet="Baayami Sabots +1",
     neck="Caller's Pendant",
-    waist="Jaq'ij Sash",
+    waist="Lucidity Sash",
     left_ear="Lodurr Earring",
 	right_ear="Gifted Earring",
-    left_ring="Fervor Ring",
+    left_ring="Stinkini Ring",
     right_ring="Evoker's Ring",
-    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},}
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10','Pet: Damage taken -5%',}},}
 
     sets.midcast.Pet.DebuffBloodPactWard = {    main={ name="Espiritus", augments={'Summoning magic skill +15','Pet: Mag. Acc.+30','Pet: Damage taken -4%',}},
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
-    head="Convoker's Horn",
-    body="Con. Doublet +2",
-    hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
-    legs="Baayami Slops",
+    head="Baayami Hat",
+    body="Baayami Robe",
+    hands="Baayami Cuffs",
+	legs="Baayami Slops",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
-    neck="Caller's Pendant",
-    waist="Jaq'ij Sash",
+    neck="Summoner's Collar +2",
+    waist="Lucidity Sash",
     left_ear="Lodurr Earring",
 	right_ear="Gifted Earring",
     left_ring="Fervor Ring",
     right_ring="Evoker's Ring",
-    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},}
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10','Pet: Damage taken -5%',}},}
         
     sets.midcast.Pet.DebuffBloodPactWard.Acc = sets.midcast.Pet.DebuffBloodPactWard
     
@@ -291,18 +291,18 @@ function init_gear_sets()
 	main={ name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="elan strap +1",
     ammo="Sancus Sachet +1",
-    head={ name="Apogee Crown", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
-	body="Con. Doublet +2",
+    head="Convoker's Horn +2",
+	body="Con. Doublet +3",
     hands={ name="Merlinic Dastanas", augments={'Pet: Mag. Acc.+17 Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -2%','Pet: AGI+8','Pet: "Mag.Atk.Bns."+13',}},
 	legs={ name="Apogee Slacks", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
-    neck="Caller's Pendant",
+    neck="Summoner's Collar +2",
     waist="Mujin Obi",
     left_ear="Gifted Earring",
 	right_ear="Gelos Earring",
-    left_ring="Varar Ring",
-    right_ring="Varar Ring",
-    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},}
+    left_ring="Varar Ring +1",
+    right_ring="Varar Ring +1",
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10','Pet: Damage taken -5%',}},}
 
     sets.midcast.Pet.PhysicalBloodPactRage.Acc = sets.midcast.Pet.PhysicalBloodPactRage
 
@@ -311,17 +311,17 @@ function init_gear_sets()
     sub="elan strap +1",
     ammo="Sancus Sachet +1",
     head={ name="Apogee Crown", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
-    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    body="Con. Doublet +3",
     hands={ name="Merlinic Dastanas", augments={'Pet: Mag. Acc.+17 Pet: "Mag.Atk.Bns."+17','Pet: Phys. dmg. taken -2%','Pet: AGI+8','Pet: "Mag.Atk.Bns."+13',}},
     legs={ name="Apogee Slacks", augments={'MP+60','Pet: "Mag.Atk.Bns."+30','Blood Pact Dmg.+7',}},
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
-    neck="Caller's Pendant",
+    neck="Summoner's Collar +2",
     waist="Klouskap Sash",
     left_ear="Gifted Earring",
 	right_ear="Gelos Earring",
-    left_ring="Varar Ring",
-    right_ring="Varar Ring",
-    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+8','Pet: Haste+10','Pet: Damage taken -1%',}},}
+    left_ring="Varar Ring +1",
+    right_ring="Varar Ring +1",
+    back={ name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Magic Damage+10','Pet: Haste+10','Pet: Damage taken -5%',}},}
 
     sets.midcast.Pet.MagicalBloodPactRage.Acc = sets.midcast.Pet.MagicalBloodPactRage
 
@@ -343,7 +343,7 @@ function init_gear_sets()
     sets.resting = {main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
-    head="Convoker's Horn",
+    head="Beckoner's Horn +1",
     body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
@@ -359,13 +359,13 @@ function init_gear_sets()
     sets.idle = {main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
-    head="Convoker's Horn",
-     body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
+    head="Beckoner's Horn +1",
+    body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
     feet={ name="Apogee Pumps +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     neck="Caller's Pendant",
-    waist="Klouskap Sash",
+    waist="Lucidity Sash",
     left_ear="Gifted Earring",
     left_ring="Woltaris Ring",
     right_ring="Evoker's Ring",
@@ -374,7 +374,7 @@ function init_gear_sets()
     sets.idle.PDT = {main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
-    head="Convoker's Horn",
+    head="Beckoner's Horn +1",
     body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
@@ -410,7 +410,7 @@ function init_gear_sets()
 	main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
-    head="Convoker's Horn",
+    head="Beckoner's Horn +1",
     body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
@@ -425,7 +425,7 @@ function init_gear_sets()
     sets.idle.PDT.Avatar = 	{main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
-    head="Convoker's Horn",
+    head="Beckoner's Horn +1",
     body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
@@ -440,7 +440,7 @@ function init_gear_sets()
     sets.idle.Spirit = {	main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
-    head="Convoker's Horn",
+    head="Beckoner's Horn +1",
     body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
@@ -455,7 +455,7 @@ function init_gear_sets()
     sets.idle.Town = {	main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
-    head="Convoker's Horn",
+    head="Beckoner's Horn +1",
     body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
@@ -468,7 +468,7 @@ function init_gear_sets()
     back="Campestres's Cape"}
 
     -- Favor uses Caller's Horn instead of Convoker's Horn for refresh
-    sets.idle.Avatar.Favor = {head="Beckoner's Horn"}
+    sets.idle.Avatar.Favor = {head="Beckoner's Horn +1"}
     sets.idle.Avatar.Melee = {hands="Regimen Mittens",back="Samanisi Cape",waist="Kuku Stone",legs="Convoker's Spats"}
         
     sets.perp = {}
@@ -505,7 +505,7 @@ function init_gear_sets()
     sets.engaged = {main={name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
     sub="Vox Grip",
     ammo="Sancus Sachet +1",
-    head="Convoker's Horn",
+    head="Convoker's Horn +2",
     body={ name="Apo. Dalmatica +1", augments={'MP+80','Pet: "Mag.Atk.Bns."+35','Blood Pact Dmg.+8',}},
     hands={ name="Glyphic Bracers +1", augments={'Inc. Sp. "Blood Pact" magic burst dmg.',}},
     legs="Assid. Pants +1",
@@ -673,7 +673,7 @@ function job_self_command(cmdParams, eventArgs)
         wards.flag = false
         wards.spell = ''
         eventArgs.handled = true
-	elseif cmdParams[1]:lower() == 'carbuncle' then
+	elseif cmdParams[1]:lower() == 'carbuncle' then --Buffs
 		recast_ward("Carbuncle")
 		eventArgs.handled = true
 	elseif cmdParams[1]:lower() == 'titan' then
@@ -698,7 +698,13 @@ function job_self_command(cmdParams, eventArgs)
 		recast_ward("Fenrir")
 		eventArgs.handled = true
 	elseif cmdParams[1] == 'cait' then
-		recast_ward("Fenrir")
+		recast_debuff("Cait Sith")
+		eventArgs.handled = true
+	elseif cmdParams[1] == 'shivad' then --Debuffs
+		recast_debuff("Shiva")
+		eventArgs.handled = true
+	elseif cmdParams[1] == 'fenrird' then
+		recast_debuff("Fenrir")
 		eventArgs.handled = true
     end
 end
@@ -770,6 +776,56 @@ function recast_ward(targetavatar)
     end
 	
 	command = command..'input //gs c pact buffOffense;' --Cast Blood Pact
+    releaseWait = releaseWait - 1
+    releaseWait = releaseWait + 0.1
+    
+    if not dontRelease and releasedAvatar ~= 'none' then --Resummon previous avatar if we need to
+        if releaseWait > 0 then
+            command = command..'wait '..tostring(releaseWait)..';'
+        else
+            command = command..'wait 1.1;'
+        end
+        
+        command = command..'input /pet "Release" <me>;'
+    end
+	
+    if releasedAvatar then
+        command = command..'wait 1.1;input /ma "'..releasedAvatar..'" <me>;'
+		command = command..'wait 6;input /pet assault <bt>;wait 20; send Bonkugon /p Ward Ready;'
+    end
+    
+    send_command(command)
+end
+
+function recast_debuff(targetavatar)
+	if areas.Cities:contains(world.area) then
+        add_to_chat(122, 'Cannot use Blood Pact in a city area.')
+        return
+    end
+	
+	local releasedAvatar
+    local dontRelease
+	local command = ''
+    local releaseWait = 0
+	
+	
+	if pet.isvalid and pet.name == targetavatar then --if current pet is the target, do not release
+		dontRelease = true
+	end
+	
+	if not pet.isvalid then
+		command = command..'input /ma "'..targetavatar..'" <me>;wait 6;'
+		releasedAvatar = 'none'
+	end
+	
+	if pet.isvalid and avatars:contains(pet.name) and pet.name ~= targetavatar then --If there is a currently a different avatar out, save it and summon the target
+		command = command..'input /pet "Release" <me>;wait 1.1;'
+		command = command..'input /ma "'..targetavatar..'" <me>;wait 6;'
+        releasedAvatar = pet.name
+        releaseWait = 6
+    end
+	
+	command = command..'input //gs c pact debuff1;' --Cast Blood Pact
     releaseWait = releaseWait - 1
     releaseWait = releaseWait + 0.1
     

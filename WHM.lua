@@ -14,7 +14,8 @@ end
 function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
-	
+	include('PrecastReadyCheck.lua')
+	include('TPGate')
 	barStatus = {}
 	barStatus.list = S{'Barparalyzra', 'Barpoisonra'}
 	
@@ -46,18 +47,18 @@ function init_gear_sets()
 		main={ name="Grioavolr", augments={'"Fast Cast"+6','MP+5','Mag. Acc.+10','"Mag.Atk.Bns."+12',}},
 		sub="Vivid Strap",
 		ammo="Impatiens",
-		head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-		body="Inyanga Jubbah",
+		head="Ebers Cap +2",
+		body="Inyanga Jubbah +2",
 		hands="Gende. Gages +1",
-		legs="Orvail Pants +1",
+		legs="Ayanmo Cosciales +1",
 		feet="Regal Pumps +1",
 		neck="Cleric's Torque",
 		waist="Embla Sash",
-		left_ear="Nourish. Earring +1",
+		left_ear="Malignance Earring",
 		right_ear="Loquac. Earring",
-		left_ring="Inyanga Ring",
-		right_ring="Windurstian Ring",
-		back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
+		left_ring="Kishar Ring",
+		right_ring="Lebeche Ring",
+		back={ name="Alaunus's Cape", augments={'"Fast Cast"+10',}}
 		}
         
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
@@ -77,10 +78,7 @@ function init_gear_sets()
     sets.precast.JA.Benediction = {body="Piety Briault"}
 
     -- Waltz set (chr and vit)
-    sets.precast.Waltz = {
-        head="Nahtirah Hat",ear1="Roundel Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",
-        back="Refraction Cape",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+    sets.precast.Waltz = {}
     
     
     -- Weaponskill sets
@@ -89,20 +87,28 @@ function init_gear_sets()
     gear.default.weaponskill_neck = "Asperity Necklace"
     gear.default.weaponskill_waist = ""
     sets.precast.WS = {
-        head="Nahtirah Hat",neck=gear.ElementalGorget,ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
-        back="Refraction Cape",waist=gear.ElementalBelt,legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+	sub="Archduke's Shield",
+    ammo="White Tathlum",
+    head="Aya. Zucchetto +2",
+    body="Piety Bliaut +3",
+    hands="SV Gauntlets +1",
+    legs="Piety Pantaln. +2",
+    feet="SV Gaiters +1",
+    neck="Lissome Necklace",
+    waist="Eschan Stone",
+    left_ear="Malignance Earring",
+    right_ear="Moonshade Earring",
+    left_ring="Rajas Ring",
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}},}
     
-    sets.precast.WS['Flash Nova'] = {
-        head="Nahtirah Hat",neck="Stoicheion Medal",ear1="Friomisi Earring",ear2="Hecate's Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Strendu Ring",
-        back="Toro Cape",waist="Thunder Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+    sets.precast.WS['Flash Nova'] = {}
     
 
     -- Midcast Sets
     
     sets.midcast.FastRecast = {
-        head="Nahtirah Hat",ear2="Loquacious Earring",
+        head="Ebers Cap +2",ear2="Loquacious Earring",
         body="Vanir Cotehardie",hands="Dynasty Mitts",ring1="Prolix Ring",
         back="Swith Cape +1",waist="Goading Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
     
@@ -114,17 +120,17 @@ function init_gear_sets()
     sub="Mensch Strap",
     ammo="Impatiens",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-    body="Theo. Bliaut +1",
+    body="Ebers Bliaut +2",
     hands="Theo. Mitts +2",
-    legs="Miasmic Pants",
-    feet="Inyan. Crackows +1",
+    legs="Ebers Pant. +2",
+    feet="Inyan. Crackows +2",
     neck="Cleric's Torque",
     waist="Olympus Sash",
     left_ear="Nourish. Earring +1",
 	right_ear="Mendicant's Earring",
     left_ring="Janniston Ring",
     right_ring="Metamorph Ring",
-    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}}
 	}
 
     sets.midcast.Cure = {    
@@ -132,17 +138,17 @@ function init_gear_sets()
     sub="Mensch Strap",
     ammo="Impatiens",
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-    body="Theo. Bliaut +1",
+    body="Ebers Bliaut +2",
     hands="Theo. Mitts +2",
-    legs="Miasmic Pants",
-    feet="Inyan. Crackows +1",
+    legs="Ebers Pant. +2",
+    feet="Inyan. Crackows +2",
     neck="Cleric's Torque",
     waist="Olympus Sash",
     left_ear="Nourish. Earring +1",
 	right_ear="Mendicant's Earring",
     left_ring="Janniston Ring",
     right_ring="Metamorph Ring",
-    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}}
 	}
 
     sets.midcast.Curaga = {    
@@ -152,15 +158,15 @@ function init_gear_sets()
     head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
     body="Theo. Bliaut +1",
     hands="Theo. Mitts +2",
-    legs="Miasmic Pants",
-    feet="Inyan. Crackows +1",
+    legs="Ebers Pant. +2",
+    feet="Inyan. Crackows +2",
     neck="Cleric's Torque",
     waist="Olympus Sash",
     left_ear="Nourish. Earring +1",
 	right_ear="Mendicant's Earring",
     left_ring="Inyanga Ring",
     right_ring="Metamorph Ring",
-    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}}
 	}
 
     sets.midcast.CureMelee = {ammo="Incantor Stone",
@@ -168,31 +174,112 @@ function init_gear_sets()
         body="Vanir Cotehardie",hands="Bokwus Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
         back="Tuilha Cape",waist=gear.ElementalObi,legs="Orison Pantaloons +2",feet="Piety Duckbills +1"}
 
-    sets.midcast.Cursna = {main="Beneficus",sub="Genbu's Shield",
-        head="Orison Cap +2",neck="Malison Medallion",
-        body="Orison Bliaut +2",hands="Hieros Mittens",ring1="Ephedra Ring",ring2="Sirona's Ring",
-        back="Mending Cape",waist="Goading Belt",legs="Theophany Pantaloons",feet="Gendewitha Galoshes"}
+    sets.midcast.Cursna = {
+	main="Chatoyant Staff",
+    sub="Mensch Strap",
+    ammo="Impatiens",
+    head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
+    body="Ebers Bliaut +2",
+    hands="Inyan. Dastanas +2",
+    legs="Th. Pantaloons +2",
+    feet="Regal Pumps +1",
+    neck="Debilis Medallion",
+    waist="Bishop's Sash",
+    left_ear="Mimir Earring",
+    right_ear="Mendi. Earring",
+    left_ring="Menelaus's Ring",
+    right_ring="Haoma's Ring",
+    back={ name="Alaunus's Cape", augments={'"Fast Cast"+10',}},}
 
     sets.midcast.StatusRemoval = {
-        head="Orison Cap +2",legs="Orison Pantaloons +2"}
+        head="Ebers Cap +2",legs="Ebers Pant. +2"}
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts
-    sets.midcast['Enhancing Magic'] = {main="Beneficus",sub="Genbu's Shield",
-        head="Umuthi Hat",neck="Colossus's Torque",
-        body="Manasa Chasuble",hands="Dynasty Mitts",ear2="Mimir Earring",
-        back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons",feet="Orison Duckbills +2"}
+    sets.midcast['Enhancing Magic'] = {
+	main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
+    sub="Deliverance +1",
+    ammo="Impatiens",
+    head="Ebers Cap +2",
+    body="Ebers Bliaut +2",
+    hands="Ebers Mitts",
+    legs="Inyanga Shalwar +2",
+    feet="Theo. Duckbills +2",
+    neck="Warder's Charm",
+    waist="Embla Sash",
+    left_ear="Eabani Earring",
+    right_ear="Mimir Earring",
+    left_ring="Inyanga Ring",
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}}
+	}
 
     sets.midcast.Stoneskin = {
-        head="Nahtirah Hat",neck="Orison Locket",ear2="Loquacious Earring",
-        body="Vanir Cotehardie",hands="Dynasty Mitts",
-        back="Swith Cape +1",waist="Siegel Sash",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+    main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
+    sub="Deliverance +1",
+    ammo="Impatiens",
+    head="Ebers Cap +2",
+    body="Ebers Bliaut +2",
+    hands="Ebers Mitts",
+    legs="Shedir Seraweels",
+    feet="Theo. Duckbills +2",
+    neck="Warder's Charm",
+    waist="Embla Sash",
+    left_ear="Eabani Earring",
+    right_ear="Mimir Earring",
+    left_ring="Inyanga Ring",
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}}
+	}
+	sets.midcast.Aquaveil = {
+	main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
+    sub="Deliverance +1",
+    ammo="Impatiens",
+    head="Ebers Cap +2",
+    body="Ebers Bliaut +2",
+    hands="Ebers Mitts",
+    legs="Shedir Seraweels",
+    feet="Theo. Duckbills +2",
+    neck="Warder's Charm",
+    waist="Embla Sash",
+    left_ear="Eabani Earring",
+    right_ear="Mimir Earring",
+    left_ring="Inyanga Ring",
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}},
+	}
+    sets.midcast.Auspice = {
+	main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
+    sub="Deliverance +1",
+    ammo="Impatiens",
+    head="Ebers Cap +2",
+    body="Ebers Bliaut +2",
+    hands="Ebers Mitts",
+    legs="Inyanga Shalwar +2",
+    feet="Theo. Duckbills +2",
+    neck="Warder's Charm",
+    waist="Embla Sash",
+    left_ear="Eabani Earring",
+    right_ear="Mimir Earring",
+    left_ring="Inyanga Ring",
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}},}
 
-    sets.midcast.Auspice = {hands="Dynasty Mitts",feet="Orison Duckbills +2"}
-
-    sets.midcast.BarElement = {main="Beneficus",sub="Genbu's Shield",
-        head="Orison Cap +2",neck="Colossus's Torque",
-        body="Orison Bliaud +2",hands="Orison Mitts +2", ear2="Mimir Earring",
-        back="Mending Cape",waist="Embla Sash",legs="Piety Pantaloons",feet="Orison Duckbills +2"}
+    sets.midcast.BarElement = {
+	main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
+    sub="Deliverance +1",
+    ammo="Impatiens",
+    head="Ebers Cap +2",
+    body="Ebers Bliaut +2",
+    hands="Ebers Mitts",
+    legs="Inyanga Shalwar +2",
+    feet="Theo. Duckbills +2",
+    neck="Warder's Charm",
+    waist="Embla Sash",
+    left_ear="Eabani Earring",
+    right_ear="Mimir Earring",
+    left_ring="Inyanga Ring",
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}},}
 	sets.midcast.barStatus = {
 		main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
 		
@@ -200,91 +287,71 @@ function init_gear_sets()
 	}
 
     sets.midcast.Regen = {
-		main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
-        body="Piety Bliaut",hands="Ebers Mitts",
-		head="Inyanga Tiara +2",
-        legs="Theophany Pantaloons"}
+	main={ name="Gada", augments={'Enh. Mag. eff. dur. +5','STR+4','Mag. Acc.+6','"Mag.Atk.Bns."+9',}},
+    sub="Deliverance +1",
+    ammo="Impatiens",
+    head="Inyanga Tiara +2",
+    body="Piety Bliaut +3",
+    hands="Ebers Mitts +1",
+    legs="Th. Pantaloons +2",
+    feet="Theo. Duckbills +2",
+    neck="Cleric's Torque",
+    waist="Embla Sash",
+    left_ear="Eabani Earring",
+    right_ear="Mimir Earring",
+    left_ring="Inyanga Ring",
+    right_ring="Metamorph Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}},}
 
     sets.midcast.Protectra = {ring1="Sheltered Ring",feet="Piety Duckbills +1"}
 
-    sets.midcast.Shellra = {ring1="Sheltered Ring",legs="Piety Pantaloons"}
+    sets.midcast.Shellra = {ring1="Sheltered Ring",legs="Piety Pantaloons +1"}
 
 
-    sets.midcast['Divine Magic'] = {main="Bolelabunga",sub="Genbu's Shield",
-        head="Nahtirah Hat",neck="Colossus's Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring2="Sangoma Ring",
-        back="Refraction Cape",waist=gear.ElementalObi,legs="Theophany Pantaloons",feet="Gendewitha Galoshes"}
+    sets.midcast['Divine Magic'] = {}
 
-    sets.midcast['Dark Magic'] = {main="Bolelabunga", sub="Genbu's Shield",
-        head="Nahtirah Hat",neck="Aesir Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Strendu Ring",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Demonry Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+    sets.midcast['Dark Magic'] = {}
 
     -- Custom spell classes
-    sets.midcast.MndEnfeebles = {main="Lehbrailg +2", sub="Mephitis Grip",
-        head="Nahtirah Hat",neck="Weike Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Aquasoul Ring",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Demonry Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+    sets.midcast.MndEnfeebles = {}
 
-    sets.midcast.IntEnfeebles = {main="Lehbrailg +2", sub="Mephitis Grip",
-        head="Nahtirah Hat",neck="Weike Torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Icesoul Ring",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Demonry Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+    sets.midcast.IntEnfeebles = {}
 
     
     -- Sets to return to when not performing an action.
     
     -- Resting sets
-    sets.resting = {main=gear.Staff.HMP, 
-        body="Gendewitha Bliaut",hands="Serpentes Cuffs",
-        waist="Austerity Belt",legs="Nares Trews",feet="Chelona Boots +1"}
+    sets.resting = {}
     
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {    
-	main="Chatoyant Staff",
-    sub="Mensch Strap",
     ammo="Impatiens",
     head="Inyanga Tiara +2",
-    body="Theophany Bliaut +1",
-    hands="Inyanga Dastanas +1",
-    legs="Inyanga Shalwar +1",
-    feet="Inyan. Crackows +1",
-    neck="Cleric's Torque",
-    waist="Embla Sash",
-    left_ear="Nourish. Earring +1",
-	right_ear="Eabani Earring",
+    body="Ebers Bliaut +2",
+    hands="Inyanga Dastanas +2",
+    legs="Inyanga Shalwar +2",
+    feet="Inyan. Crackows +2",
+    neck="Warder's Charm",
+    waist="Carrier's Sash",
+    left_ear="Eabani Earring",
+	right_ear="Loquacious Earring",
     left_ring="Inyanga Ring",
     right_ring="Metamorph Ring",
-    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+6','Enmity-10','Phys. dmg. taken-4%',}}
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}}
 	}
 
-    sets.idle.PDT = {main="Bolelabunga", sub="Genbu's Shield",ammo="Incantor Stone",
-        head="Nahtirah Hat",neck="Twilight Torque",ear1="Bloodgem Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Defending Ring",ring2=gear.DarkRing.physical,
-        back="Umbra Cape",waist="Witful Belt",legs="Gendewitha Spats",feet="Herald's Gaiters"}
+    sets.idle.PDT = {}
 
-    sets.idle.Town = {main="Bolelabunga", sub="Genbu's Shield",ammo="Incantor Stone",
-        head="Gendewitha Caubeen",neck="Wiglen Gorget",ear1="Bloodgem Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Sheltered Ring",ring2="Paguroidea Ring",
-        back="Umbra Cape",waist="Witful Belt",legs="Nares Trews",feet="Herald's Gaiters"}
+    sets.idle.Town = {}
     
-    sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",ammo="Incantor Stone",
-        head="Nahtirah Hat",neck="Twilight Torque",ear1="Bloodgem Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Meridian Ring",
-        back="Umbra Cape",waist="Witful Belt",legs="Nares Trews",feet="Gendewitha Galoshes"}
+    sets.idle.Weak = {}
     
     -- Defense sets
 
-    sets.defense.PDT = {main=gear.Staff.PDT,sub="Achaq Grip",
-        head="Gendewitha Caubeen",neck="Twilight Torque",
-        body="Gendewitha Bliaut",hands="Gendewitha Gages",ring1="Defending Ring",ring2=gear.DarkRing.physical,
-        back="Umbra Cape",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+    sets.defense.PDT = {}
 
-    sets.defense.MDT = {main=gear.Staff.PDT,sub="Achaq Grip",
-        head="Nahtirah Hat",neck="Twilight Torque",
-        body="Vanir Cotehardie",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
-        back="Tuilha Cape",legs="Bokwus Slops",feet="Gendewitha Galoshes"}
+    sets.defense.MDT = {}
 
     sets.Kiting = {feet="Herald's Gaiters"}
 
@@ -299,10 +366,22 @@ function init_gear_sets()
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-		main={ name="Grioavolr", augments={'"Fast Cast"+6','MP+5','Mag. Acc.+10','"Mag.Atk.Bns."+12',}},
-        head="Nahtirah Hat",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Vanir Cotehardie",hands="Dynasty Mitts",ring1="Rajas Ring",ring2="K'ayres Ring",
-        back="Umbra Cape",waist="Goading Belt",legs="Gendewitha Spats",feet="Gendewitha Galoshes"}
+	main="Kaja Rod",
+    sub="Archduke's Shield",
+    ammo="White Tathlum",
+    head="Aya. Zucchetto +2",
+    body="SV Separates +1",
+    hands="SV Gauntlets +1",
+    legs="SV Loincloth +1",
+    feet="SV Gaiters +1",
+    neck="Lissome Necklace",
+    waist="Windbuffet Belt +1",
+    left_ear="Alabaster Earring",
+    right_ear="Eabani Earring",
+    left_ring="Rajas Ring",
+    right_ring="Inyanga Ring",
+    back={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity-10','Phys. dmg. taken-10%',}},
+	}
 
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.

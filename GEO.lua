@@ -30,7 +30,7 @@
 		gs c geo indicycle				Cycles IndiColure Spell
 		gs c geo indicycledown			Cycles IndiColure Spell in reverse order
 		gs c geo geo					Cast saved Geo Spell
-		gs c geo indi					Cast saved Indi Spell
+		gs c geo indi					Cast saved Indi Spell//
 
         HUD Functions:
         gs c hud hide                   Toggles the Hud entirely on or off
@@ -58,6 +58,8 @@ include('organizer-lib') -- Remove if you dont use Organizer
 res = require('resources')      -- leave this as is    
 texts = require('texts')        -- leave this as is    
 include('Modes.lua')            -- leave this as is      
+include('PrecastReadyCheck.lua')
+include('TPGate')
 --------------------------------------------------------------------------------------------------------------
 
 -- Define your modes: 
@@ -110,6 +112,10 @@ keybinds_on['key_bind_indi_cycle'] = '(End + PgDOWN)'
 keybinds_on['key_bind_lock_weapon'] = '(F12)'
 keybinds_on['key_bind_movespeed_lock'] = '(ALT-F9)'
 
+function user_setup()
+select_default_macro_book()
+
+end
 
 -- Remember to unbind your keybinds on job change.
 function user_unload()
@@ -128,6 +134,35 @@ end
 --------------------------------------------------------------------------------------------------------------
 include('GEO_Lib.lua')          -- leave this as is     
 --------------------------------------------------------------------------------------------------------------
+
+auto_geo_abilities = true
+
+local geo_lib_precast = precast
+local geo_lib_aftercast = aftercast
+
+local function ability_ready(ability_name)
+    local ability = res.job_abilities:with('en', ability_name)
+    local recasts = windower.ffxi.get_ability_recasts()
+
+    return ability and recasts[ability.recast_id] == 0
+end
+
+function precast(spell)
+    if auto_geo_abilities and spell.name:match('^Geo%-') and not pet.isvalid and ability_ready('Blaze of Glory') then
+        cast_delay(1.1)
+        send_command('input /ja "Blaze of Glory" <me>')
+    end
+
+    geo_lib_precast(spell)
+end
+
+function aftercast(spell)
+    geo_lib_aftercast(spell)
+
+    if auto_geo_abilities and spell.name:match('^Geo%-') and not spell.interrupted and ability_ready('Ecliptic Attrition') then
+        send_command('wait 2;input /ja "Ecliptic Attrition" <me>; wait 2; /ja "Life Cycle" <me>')
+    end
+end
 
 geomancy:set('Geo-Frailty')     -- Geo Spell Default      (when you first load lua / change jobs the saved spells is this one)
 indicolure:set('Indi-Fury')    -- Indi Spell Default     (when you first load lua / change jobs the saved spells is this one)
@@ -152,20 +187,19 @@ function get_sets()
 
     -- Your idle set when you DON'T have a luopan out
     sets.me.idle.normal = {
-		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
 		range="Dunna",
-		head={ name="Bagua Galero +2", augments={'Enhances "Primeval Zeal" effect',}},
+		head="Azimuth Hood +2",
 		body="Jhakri Robe +2",
 		hands={ name="Bagua Mitaines", augments={'Enhances "Curative Recantation" effect',}},
 		legs="Assiduity Pants",
-		feet="Geomancy Sandals",
+		feet="Azimuth Gaiters +2",
 		neck="Sanctity Necklace",
-		waist="Witful Belt",
-		left_ear="Aredan Earring",
+		waist="Slipor Sash",
+		left_ear="Infused Earring",
 		right_ear="Hecate's Earring",
 		left_ring="Renaye Ring",
 		right_ring="Defending Ring",
-		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
+		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+10','Pet: "Regen"+5',}},
     }
 	
 	-- This or herald gaiters or +1 +2 +3... 
@@ -193,18 +227,16 @@ function get_sets()
     -- Luopan's Out --  notice sets.pan 
     -- This is the base for all perpetuation scenarios, as seen below
     sets.pan.idle.normal = {
-		main="Terra's Staff",
-		sub="Mensch Strap +1",
 		range="Dunna",
-		head={ name="Bagua Galero +2", augments={'Enhances "Primeval Zeal" effect',}},
-		body="Jhakri Robe +2",
+		head="Azimuth Hood +2",
+		body="Azimuth Coat +2",
 		hands="Geo. Mitaines +2",
-		legs="Assiduity Pants",
-		feet={ name="Bagua Sandals +1", augments={'Enhances "Radial Arcana" effect',}},
-		neck="Sanctity Necklace",
-		waist="Witful Belt",
+		legs="Azimuth Tights +2",
+		feet = "Azimuth Gaiters +2",
+		neck="Warder's Charm +1",
+		waist="Slipor Sash",
 		left_ear="Handler's Earring +1",
-		right_ear="Hecate's Earring",
+		right_ear="Vor Earring",
 		left_ring="Renaye Ring",
 		right_ring="Defending Ring",
 		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+10','Pet: "Regen"+5',}},
@@ -221,16 +253,30 @@ function get_sets()
       
     -- Melee
     -- Anything you equip here will overwrite the perpetuation/refresh in that slot.
+    sets.engaged = {
+        main="Kaja Rod",
+        sub="Sors Shield",
+        ammo="White Tathlum",
+        head="Azimuth Hood +2",
+        body="WN Kaftan +1",
+        hands="WN Mittens +1",
+        legs="Jhakri Slops +2",
+        feet="Azimuth Gaiters +2",
+        neck="Lissome Necklace",
+        waist="Windbuffet Belt +1",
+        left_ear="Alabaster Earring",
+        right_ear="Steelflash Earring",
+        left_ring="Rajas Ring",
+        right_ring="Defending Ring",
+        back="Null Shawl",
+    }
+
 	-- No Luopan out
 	-- they end in [idleMode] so it will derive from either the normal or the dt set depending in which mode you are then add the pieces filled in below.
-    sets.me.melee = set_combine(sets.me.idle[idleMode],{
-
-    })
+    sets.me.melee = set_combine(sets.me.idle.normal, sets.engaged)
 	
     -- Luopan is out
-	sets.pan.melee = set_combine(sets.pan.idle[idleMode],{
-
-    }) 
+	sets.pan.melee = set_combine(sets.pan.idle.normal, sets.engaged)
     
     -- Weapon Skill sets
 	-- Example:
@@ -245,9 +291,23 @@ function get_sets()
     sets.me["Exudation"] = {
 
     } 
+	sets.me["Black Halo"] = {
+	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+    head="Jhakri Coronal +2",
+    body="Jhakri Robe +2",
+    hands="Jhakri Cuffs +2",
+    legs="Jhakri Slops +2",
+    feet="Jhakri Pigaches +2",
+    neck="Sanctity Necklace",
+    waist="Eschan Stone",
+    left_ear="Malignance Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Rajas Ring",
+    right_ring="Metamorph Ring",
+    }
 	sets.me["Hexa Strike"] = {
 	main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
-    sub="Janus Guard",
+    sub="Sors Shield",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
@@ -255,12 +315,12 @@ function get_sets()
     legs="Jhakri Slops +2",
     feet="Jhakri Pigaches +2",
     neck="Sanctity Necklace",
-    waist="Salire Belt",
+    waist="Eschan Stone",
     left_ear="Steelflash Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Stikini Ring",
     right_ring="Stikini Ring",
-    back="Seshaw Cape"
+    back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+10','Pet: "Regen"+5',}},
 	}
 
     -- Feel free to add new weapon skills, make sure you spell it the same as in game.
@@ -281,15 +341,16 @@ function get_sets()
     -- Generic Casting Set that all others take off of. Here you should add all your fast cast  
     sets.precast.casting = {
 		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
+		sub="Sors Shield",
 		range="Dunna",
 		head={ name="Merlinic Hood", augments={'Mag. Acc.+21','"Fast Cast"+7','CHR+3',}},
-		body={ name="Bagua Tunic", augments={'Enhances "Bolster" effect',}},
+		body="Geomancy Tunic +3",
 		hands={ name="Merlinic Dastanas", augments={'"Fast Cast"+5','MND+10','Mag. Acc.+6',}},
-		legs="Geomancy Pants",
+		legs="Geomancy Pants +2",
 		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+21','"Fast Cast"+5','MND+5','"Mag.Atk.Bns."+1',}},
 		neck="Sanctity Necklace",
 		waist="Witful Belt",
-		left_ear="Handler's Earring +1",
+		left_ear="Malignance Earring",
 		right_ear="Loquac. Earring",
 		left_ring="Stikini Ring",
 		right_ring="Stikini Ring",
@@ -322,7 +383,7 @@ function get_sets()
 	
 	-- Fill up with your JSE! 
     sets.precast["Life Cycle"] = {
-    	body = "Geomancy Tunic +1",
+    	body = "Geomancy Tunic +3",
     }
     sets.precast["Bolster"] = {
     	body = "Bagua Tunic +1",
@@ -331,10 +392,10 @@ function get_sets()
     	head={ name="Bagua Galero +2", augments={'Enhances "Primeval Zeal" effect',}},
     }  
     sets.precast["Cardinal Chant"] = {
-    	head = "Geomancy Galero",
+    	head = "Geomancy Galero +2",
     }  
     sets.precast["Full Circle"] = {
-    	head = "Azimuth Hood",
+    	head = "Azimuth Hood +2",
     }  
     sets.precast["Curative Recantation"] = {
     	hands = "Bagua Mitaines +1",
@@ -343,7 +404,7 @@ function get_sets()
     	legs = "Bagua Pants +1",
     }
     sets.precast["Radial Arcana"] = {
-    	feet = "Bagua Sandals +1",
+    	feet = "Bagua Sandals +3",
     }
 
     ----------
@@ -358,36 +419,38 @@ function get_sets()
 	-- For Geo spells /
     sets.midcast.geo = set_combine(sets.midcast.casting,{
 		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
+		sub="Sors Shield",
 		range="Dunna",
-		head="Azimuth Hood",
+		head="Azimuth Hood +2",
 		body={ name="Bagua Tunic", augments={'Enhances "Bolster" effect',}},
 		hands="Geo. Mitaines +2",
-		legs={ name="Bagua Pants", augments={'Enhances "Mending Halation" effect',}},
-		feet={ name="Merlinic Crackows", augments={'Mag. Acc.+21','"Fast Cast"+5','MND+5','"Mag.Atk.Bns."+1',}},
-		neck="Sanctity Necklace",
+		legs={ name="Bagua Pants +1", augments={'Enhances "Mending Halation" effect',}},
+		feet="Azimuth Gaiters +1",
+		neck="Bagua Charm +1",
 		waist="Austerity Belt",
 		left_ear="Handler's Earring +1",
 		right_ear="Hecate's Earring",
 		left_ring="Renaye Ring",
 		right_ring="Stikini Ring",
-		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
+		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+10','Pet: "Regen"+5',}},
     })
 	-- For Indi Spells
     sets.midcast.indi = set_combine(sets.midcast.geo,{
 		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
+		sub="Sors Shield",
 		range="Dunna",
-		head="Azimuth Hood",
+		head="Azimuth Hood +2",
 		body={ name="Bagua Tunic", augments={'Enhances "Bolster" effect',}},
 		hands="Geo. Mitaines +2",
 		legs={ name="Bagua Pants + 1", augments={'Enhances "Mending Halation" effect',}},
-		feet="Azimuth Gaiters",
-		neck="Sanctity Necklace",
+		feet="Azimuth Gaiters +1",
+		neck="Bagua Charm +1",
 		waist="Austerity Belt",
 		left_ear="Handler's Earring +1",
 		right_ear="Hecate's Earring",
 		left_ring="Renaye Ring",
 		right_ring="Stikini Ring",
-		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+3','Pet: "Regen"+2',}}
+		back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+10','Pet: "Regen"+5',}},
     })
 
 	sets.midcast.Obi = {
@@ -397,37 +460,37 @@ function get_sets()
 	-- Nuking
     sets.midcast.nuking.normal = set_combine(sets.midcast.casting,{
 		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
-		sub="Janus Guard",
-		range="Dunna",
-		head="Jhakri Coronal +2",
+		sub="Sors Shield",
+		ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+		head="Azimuth Hood +2",
 		body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
 		hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
 		legs="Jhakri Slops +2",
 		feet="Jhakri Pigaches +2",
 		neck="Sanctity Necklace",
-		waist="Salire Belt",
+		waist="Eschan Stone",
 		left_ear="Friomisi Earring",
-		right_ear="Hecate's Earring",
+		right_ear="Malignance Earring",
 		left_ring="Mujin Band",
 		right_ring="Fenrir Ring",
-		back="Seshaw Cape"
+		back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
     })
 	sets.midcast.MB.normal = set_combine(sets.midcast.nuking.normal, {
 		main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
-		sub="Janus Guard",
-		range="Dunna",
-		head="Jhakri Coronal +2",
+		sub="Sors Shield",
+		ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+		head="Azimuth Hood +2",
 		body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
 		hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
 		legs="Jhakri Slops +2",
 		feet="Jhakri Pigaches +2",
 		neck="Sanctity Necklace",
-		waist="Salire Belt",
+		waist="Eschan Stone",
 		left_ear="Friomisi Earring",
-		right_ear="Hecate's Earring",
+		right_ear="Malignance Earring",
 		left_ring="Mujin Band",
 		right_ring="Fenrir Ring",
-		back="Seshaw Cape"
+		back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}}
 	})
     sets.midcast.nuking.acc = set_combine(sets.midcast.nuking.normal,{
 
@@ -438,11 +501,59 @@ function get_sets()
 
 	-- Enfeebling
 	sets.midcast.IntEnfeebling = set_combine(sets.midcast.casting,{
+	    main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
+		sub="Sors Shield",
+		range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+		head="Azimuth Hood +2",
+		body="Geomancy Tunic +3",
+		hands="Geo. Mitaines +2",
+		legs="Geomancy Pants +2",
+		feet="Azimuth Gaiters +2",
+		neck="Bagua Charm +1",
+		waist="Eschan Stone",
+		left_ear="Malignance Earring",
+		right_ear="Vor Earring",
+		left_ring="Stikini Ring",
+		right_ring="Stikini Ring",
+		back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}},
 
     })
 	sets.midcast.MndEnfeebling = set_combine(sets.midcast.casting,{
+	    main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
+		sub="Sors Shield",
+		range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+		head="Azimuth Hood +2",
+		body="Geomancy Tunic +3",
+		hands="Geo. Mitaines +2",
+		legs="Geomancy Pants +2",
+		feet="Azimuth Gaiters +2",
+		neck="Bagua Charm +1",
+		waist="Eschan Stone",
+		left_ear="Malignance Earring",
+		right_ear="Vor Earring",
+		left_ring="Stikini Ring",
+		right_ring="Stikini Ring",
+		back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10',}},
 
     })
+	--Dark Magic
+	sets.midcast['Dark Magic'] = { 
+	main={ name="Solstice", augments={'INT+15','"Mag.Atk.Bns."+10','"Refresh"+1',}},
+    sub="Sors Shield",
+    range="Dunna",
+    head="Geo. Galero +2",
+    body="Geomancy Tunic +3",
+    hands="Geo. Mitaines +2",
+    legs="Azimuth Tights +2",
+    feet="Azimuth Gaiters +2",
+    neck="Erra Pendant",
+    waist="Acuity Belt +1",
+    left_ear="Malignance Earring",
+    right_ear="Aredan Earring",
+    left_ring="Kishar Ring",
+    right_ring="Stikini Ring",
+    back={ name="Nantosuelta's Cape", augments={'INT+6','Mag. Acc+1 /Mag. Dmg.+1','Mag. Acc.+2','Pet: "Regen"+10','Pet: "Regen"+5',}}
+	}
 	
     -- Enhancing
     sets.midcast.enhancing = set_combine(sets.midcast.casting,{
@@ -458,6 +569,8 @@ function get_sets()
     sets.midcast.aquaveil = sets.midcast.refresh
 	
 	sets.midcast["Drain"] = set_combine(sets.midcast.IntEnfeebling, {
+	body="Geomancy Tunic +3",
+	neck="Erra Pendant",
 
 	})
 
@@ -465,7 +578,22 @@ function get_sets()
      
     sets.midcast.cure = {} -- Leave This Empty
     -- Cure Potency
-    sets.midcast.cure.normal = set_combine(sets.midcast.casting,{
+    sets.midcast.cure.normal = set_combine(sets.midcast.casting,{    
+	main="Gada",
+    sub="Sors Shield",
+    range="Dunna",
+    head="Azimuth Hood +2",
+    body="Geomancy Tunic +3",
+    hands="Geo. Mitaines +2",
+    legs="Psycloth Lappas",
+    feet="Azimuth Gaiters +2",
+    neck="Sanctity Necklace",
+    waist="Bishop's Sash",
+    left_ear="Malignance Earring",
+    right_ear="Beatific Earring",
+    left_ring="Stikini Ring",
+    right_ring="Haoma's Ring",
+    back="Tempered Cape",
 
     })
     sets.midcast.cure.weather = set_combine(sets.midcast.cure.normal,{
@@ -474,11 +602,17 @@ function get_sets()
     sets.midcast.regen = set_combine(sets.midcast.enhancing,{
 
     }) 
-   
+	
     ------------
     -- Aftercast
     ------------
       
     -- I don't use aftercast sets, as we handle what to equip later depending on conditions using a function, eg, do we have a Luopan pan out?
   
+end
+
+function select_default_macro_book()
+    -- Default macro set/book
+        set_macro_page(1, 1)
+		send_command('wait 5;input /lockstyleset 1')
 end

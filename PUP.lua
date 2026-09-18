@@ -94,7 +94,7 @@ function user_setup()
     state.AutoDeploy = M(false, "Auto Deploy")
 
     --[[
-        Alt + D will turn on or off Lock Pet DT
+        Alt + D will turn on or off wLock Pet DT
         (Note this will block all gearswapping when active)
     ]]
     state.LockPetDT = M(false, "Lock Pet DT")
@@ -812,12 +812,13 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     if player.sub_job == "WAR" then
-        set_macro_page(1, 3)
+        set_macro_page(1, 1)
     elseif player.sub_job == "NIN" then
-        set_macro_page(1, 3)
+        set_macro_page(1, 1)
     elseif player.sub_job == "DNC" then
-        set_macro_page(1, 3)
+        set_macro_page(1, 1)
     else
-        set_macro_page(1, 3)
+        set_macro_page(1, 1)
     end
+	send_command('wait 5;input /lockstyleset 1')
 end

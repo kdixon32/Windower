@@ -13,6 +13,7 @@ function get_sets()
 
 	-- Load and initialize the include file.
 	include('Mote-Include.lua')
+	
 end
 
 
@@ -31,6 +32,15 @@ function job_setup()
     else
         max_runes = 0
     end
+	
+	blue_magic_maps = {}
+ 
+    blue_magic_maps.Enmity = S{'Blank Gaze', 'Geist Wall', 'Jettatura', 'Soporific',
+        'Poison Breath', 'Blitzstrahl', 'Sheep Song', 'Chaotic Eye'}
+    blue_magic_maps.Cure = S{'Wild Carrot'}
+    blue_magic_maps.Buffs = S{'Cocoon', 'Refueling'}
+	include('PrecastReadyCheck.lua')
+	include('TPGate')
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -48,57 +58,54 @@ end
 
 
 function init_gear_sets()
-    sets.enmity = {ammo="Aqreqaq Bomblet", hands="Futhark Gloves +1", back="Mubvumbamiri mantle", waist="Warwolf Belt", neck="Futhark Torque +1"}
+    sets.enmity = {ammo="Sapience Orb",
+	body="Emet Harness +1", 
+	hands="Futhark Gloves +1", 
+	back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}}, 
+	waist="Trance Belt", 
+	right_ring="Eihwaz Ring",
+	neck="Futhark Torque +1"}
 
 	--------------------------------------
 	-- Precast sets
 	--------------------------------------
 
 	-- Precast sets to enhance JAs
-    sets.precast.JA['Vallation'] = {body="Runeist coat +1", legs="Futhark trousers +1"}
-    sets.precast.JA['Valiance'] = sets.precast.JA['Vallation']
-    sets.precast.JA['Pflug'] = {feet="Runeist bottes +1"}
-    sets.precast.JA['Battuta'] = {head="Futhark Bandeau +1"}
-    sets.precast.JA['Liement'] = {body="Futhark Coat +1"}
-    sets.precast.JA['Lunge'] = {head="Thaumas Hat", neck="Eddy Necklace", ear1="Novio Earring", ear2="Friomisi Earring",
+    sets.precast.JA['Vallation'] = sets.enmity, {body="Runeist coat +3", legs="Futhark trousers +1"}
+    sets.precast.JA['Valiance'] = sets.enmity, sets.precast.JA['Vallation']
+    sets.precast.JA['Pflug'] = sets.enmity, {feet="Runeist bottes +1"}
+    sets.precast.JA['Battuta'] = sets.enmity, {head="Fu. Bandeau +3"}
+    sets.precast.JA['Liement'] = sets.enmity, {body="Futhark Coat +1"}
+    sets.precast.JA['Lunge'] = sets.enmity, {head="Thaumas Hat", neck="Eddy Necklace", ear1="Novio Earring", ear2="Friomisi Earring",
             body="Vanir Cotehardie", ring1="Acumen Ring", ring2="Omega Ring",
             back="Evasionist's Cape", waist="Yamabuki-no-obi", legs="Iuitl Tights +1", feet="Qaaxo Leggings"}
-    sets.precast.JA['Swipe'] = sets.precast.JA['Lunge']
-    sets.precast.JA['Gambit'] = {hands="Runeist Mitons +1"}
-    sets.precast.JA['Rayke'] = {feet="Futhark Bottes +1"}
-    sets.precast.JA['Elemental Sforzo'] = {body="Futhark Coat 1"}
-    sets.precast.JA['Swordplay'] = {hands="Futhark Mitons +1"}
-    sets.precast.JA['Embolden'] = {}
-    sets.precast.JA['Vivacious Pulse'] = {}
-    sets.precast.JA['One For All'] = {}
+    sets.precast.JA['Swipe'] = sets.enmity, sets.precast.JA['Lunge']
+    sets.precast.JA['Gambit'] = sets.enmity, {hands="Runeist Mitons +1"}
+    sets.precast.JA['Rayke'] = sets.enmity, {feet="Futhark Bottes +1"}
+    sets.precast.JA['Elemental Sforzo'] = sets.enmity, {body="Futhark Coat 1"}
+    sets.precast.JA['Swordplay'] = sets.enmity, {hands="Futhark Mitons +1"}
+    sets.precast.JA['Embolden'] = sets.enmity, {}
+    sets.precast.JA['Vivacious Pulse'] = sets.enmity, {head="Erilaz Galea +2",}
+    sets.precast.JA['One For All'] = sets.enmity, {}
     sets.precast.JA['Provoke'] = sets.enmity
 
 
 	-- Fast cast sets for spells
     sets.precast.FC = {
-            head="Runeist bandeau +1", ear1="Loquacious Earring",
-            body="Dread Jupon", hands="Thaumas gloves", ring2="Prolix Ring",
+            head="Runeist bandeau +2", right_ear="Loquac. Earring",
+            body="Erilaz Surcoat +2", hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}}, ring2="Prolix Ring",
             legs="Orvail Pants +1"}
-    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash", legs="Futhark Trousers +1"})
+    sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash", legs="Futhark Trousers +1"})	
     sets.precast.FC['Utsusemi: Ichi'] = set_combine(sets.precast.FC, {neck='Magoraga beads', back="Mujin Mantle"})
     sets.precast.FC['Utsusemi: Ni'] = set_combine(sets.precast.FC['Utsusemi: Ichi'], {})
 
 
 	-- Weaponskill sets
-    sets.precast.WS['Resolution'] = {ammo="Aqreqaq Bomblet",
-            head="Whirlpool Mask", neck="Thunder Gorget", ear1="Bladeborn Earring", ear2="Tuisto Earring",
-            body="Manibozho Jerkin", hands="Futhark Mitons +1", ring1="Epona's Ring", ring2="Rajas Ring",
-            back="Buquwik Cape", waist="Thunder Belt", legs="Quiahuiz Trousers", feet="Qaaxo Leggings"}
-    sets.precast.WS['Resolution'].Acc = set_combine(sets.precast.WS['Resolution'].Normal, 
-        {ammo="Honed Tathlum", body="Dread Jupon", hands="Umuthi Gloves", back="Evasionist's Cape", legs="Manibozho Legs"})
-    sets.precast.WS['Dimidiation'] = {ammo="Thew Bomblet",
-            head="Felistris Mask", neck="Thunder Gorget", ear1="Bladeborn Earring", ear2="Tuisto Earring",
-            body="Dread Jupon", hands="Futhark Mitons +1", ring1="Epona's Ring", ring2="Rajas Ring",
-            back="Atheling Mantle", waist="Windbuffet Belt", legs="Manibozho Brais", feet="Qaaxo Leggings"}
-    sets.precast.WS['Dimidiation'].Acc = set_combine(sets.precast.WS['Dimidiation'].Normal, 
-        {ammo="Honed Tathlum", head="Whirlpool Mask", hands="Buremte Gloves", back="Evasionist's Cape", waist="Thunder Belt"})
-    sets.precast.WS['Herculean Slash'] = set_combine(sets.precast['Lunge'], {hands="Umuthi Gloves"})
-    sets.precast.WS['Herculean Slash'].Acc = set_combine(sets.precast.WS['Herculean Slash'].Normal, {})
+    sets.precast.WS['Resolution'] = 
+	{ammo="Aqreqaq Bomblet",
+            head="Whirlpool Mask", neck="Thunder Gorget", ear1={name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}}, ear2="Odr Earring",
+            body="Erilaz Surcoat +2", hands="Futhark Mitons +1", ring1="Epona's Ring", ring2="Rajas Ring",
+            back={ name="Ogma's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10',}}, waist="Thunder Belt"}
 
 
 	--------------------------------------
@@ -106,11 +113,12 @@ function init_gear_sets()
 	--------------------------------------
 	
     sets.midcast.FastRecast = {}
-    sets.midcast['Enhancing Magic'] = {neck="Colossus's torque", ear1="Mimir Earring", hands="Runeist mitons +1", waist="Olympus Sash", legs="Futhark Trousers +1"}
-    sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {head="Futhark Bandeau +1"})
-    sets.midcast['Regen'] = {head="Runeist Bandeau +1", legs="Futhark Trousers +1"}
+    sets.midcast['Enhancing Magic'] = {head="Erilaz Galea +2",neck="Colossus's torque", ear1="Mimir Earring", hands="Runeist mitons +1", waist="Olympus Sash", legs="Futhark Trousers +1"}
+    sets.midcast['Phalanx'] = set_combine(sets.midcast['Enhancing Magic'], {head="Fu. Bandeau +3",body={ name="Herculean Vest", augments={'AGI+8','Accuracy+25','Phalanx +3','Accuracy+8 Attack+8','Mag. Acc.+9 "Mag.Atk.Bns."+9',}},hands={ name="Herculean Gloves", augments={'Pet: STR+5','AGI+5','Phalanx +4','Mag. Acc.+12 "Mag.Atk.Bns."+12',}},legs={ name="Herculean Trousers", augments={'"Snapshot"+3','DEX+3','Phalanx +3','Mag. Acc.+10 "Mag.Atk.Bns."+10',}}})
+    sets.midcast['Regen'] = {head="Runeist bandeau +2", legs="Futhark Trousers +1"}
     sets.midcast['Stoneskin'] = {waist="Siegel Sash"}
     sets.midcast.Cure = {neck="Colossus's Torque", hands="Buremte Gloves", ring1="Ephedra Ring", feet="Futhark Boots +1"}
+	sets.midcast['Blue Magic'] = sets.enmity
 
 	--------------------------------------
 	-- Idle/resting/defense/etc sets
@@ -118,22 +126,22 @@ function init_gear_sets()
 
     sets.idle = {	
 	main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
-    sub="Mensch Strap",
+    sub="Refined Grip +1",
     ammo="Staunch Tathlum",
-    head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
-    body={ name="Futhark Coat +1", augments={'Enhances "Elemental Sforzo" effect',}},
+    head="Nyame Helm",
+    body="Runeist Coat +3",
     hands="Turms Mittens",
-    legs="Ayanmo Cosciales",
-    feet="Turms Leggings",
+    legs="Eri. Leg Guards +2",
+    feet="Erilaz Greaves +2",
     neck="Futhark Torque +1",
     waist="Flume Belt",
     left_ear="Eabani Earring",
     right_ear="Tuisto Earring",
     left_ring="Defending Ring",
-    right_ring="Vocane Ring",
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+3','Enmity+10','Phys. dmg. taken-10%',}}}
+    right_ring="Paguroidea Ring",
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}}}
 	
-    sets.idle.Refresh = set_combine(sets.idle, {body="Runeist Coat +1", waist="Fucho-no-obi"})
+    sets.idle.Refresh = set_combine(sets.idle, {body="Runeist Coat +3", waist="Fucho-no-obi"})
            
 	sets.defense.PDT = {}
 
@@ -148,35 +156,25 @@ function init_gear_sets()
 
     sets.engaged = {    
 	main={ name="Aettir", augments={'Accuracy+70','Mag. Evasion+50','Weapon skill damage +10%',}},
-    sub="Mensch Strap",
+    sub="Refined Grip +1",
     ammo="Staunch Tathlum",
-    head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
-    body={ name="Futhark Coat +1", augments={'Enhances "Elemental Sforzo" effect',}},
+    head="Nyame Helm",
+    body="Runeist Coat +3",
     hands="Turms Mittens",
-    legs="Ayanmo Cosciales",
-    feet="Turms Leggings",
-    neck="Futhark Torque +1",
+    legs="Eri. Leg Guards +2",
+    feet="Erilaz Greaves +2",
+    neck="Loricate Torque +1",
     waist="Flume Belt",
-    left_ear="Eabani Earring",
+    left_ear="Odnowa Earring +1",
     right_ear="Tuisto Earring",
     left_ring="Defending Ring",
-    right_ring="Vocane Ring",
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+3','Enmity+10','Phys. dmg. taken-10%',}}}
+    right_ring="Paguroidea Ring",
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}}}
 	
-    sets.engaged.DD = {ammo="Ginsen",
-            head="Felistris Mask", neck="Asperity Necklace", ear1="Bladeborn Earring", ear2="Tuisto Earring",
-            body="Thaumas Coat", hands="Futhark Mitons +1", ring1="Epona's Ring", ring2="Rajas Ring",
-            back="Atheling Mantle", waist="Windbuffet Belt", legs="Quiahuiz Trousers", feet="Qaaxo Leggings"}
-    sets.engaged.Acc = set_combine(sets.engaged.DD, {sub="Tzacab Grip", ammo="Honed Tathlum", head="Whirlpool Mask",
-            neck="Iqabi Necklace", hands="Buremte Gloves", waist="Anguinus Belt", legs="Manibozho Brais"})
-    sets.engaged.PDT = {ammo="Aqreqaq Bomblet",
-            head="Futhark Bandeau +1", neck="Twilight Torque", ear1="Ethereal Earring", ear2="Colossus's earring",
-            body="Futhark Coat +1", hands="Umuthi Gloves", ring1="Dark Ring", ring2="Dark Ring",
-            back="Mollusca Mantle", waist="Flume Belt", legs="Runeist Trousers +1", feet="Iuitl Gaiters +1"}
-    sets.engaged.MDT = {
-            head="Futhark Bandeau +1", neck="Twilight Torque", ear1="Ethereal Earring", ear2="Sanare Earring",
-            body="Runeist Coat +1", hands="Umuthi Gloves", ring1="Dark Ring", ring2="Dark Ring",
-            back="Mubvumbamiri mantle", waist="Flume Belt", legs="Runeist Trousers +1", feet="Iuitl Gaiters +1"}
+    sets.engaged.DD = {}
+    sets.engaged.Acc = set_combine(sets.engaged.DD, {})
+    sets.engaged.PDT = {}
+    sets.engaged.MDT = {}
     sets.engaged.repulse = {back="Repulse Mantle"}
 
 end
@@ -230,13 +228,13 @@ end
 function select_default_macro_book()
 	-- Default macro set/book
 	if player.sub_job == 'WAR' then
-		set_macro_page(3, 20)
+		set_macro_page(1, 1)
 	elseif player.sub_job == 'NIN' then
-		set_macro_page(1, 20)
+		set_macro_page(1, 1)
 	elseif player.sub_job == 'SAM' then
-		set_macro_page(2, 20)
+		set_macro_page(1, 1)
 	else
-		set_macro_page(5, 20)
+		set_macro_page(1, 1)
 	end
 end
 
