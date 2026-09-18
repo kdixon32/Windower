@@ -10,9 +10,10 @@ lua load whereisdi
 lua load SendAllTarget
 lua load superwarp
 lua load enemybar2
+lua load xipivot
 lua load xivparty
 lua load autofps
-lua load autows
+
 lua load followall
 lua load stonks
 lua load htmb
@@ -21,37 +22,34 @@ lua load EraDistancePlus
 lua load FastFollow
 lua load Hivemind
 lua load TrueTargetLock
-lua load resing
-lua load reroll
-lua load LowProfileStartup
 
+bind f12 showfps
 bind sysrq screenshot jpg hide
 bind ^v paste
 
 bind numlock ffo me
-bind !numlock ffo group
-bind !enter sat youattack Chocopon; sat youattack Aluber; sat youattack Keldeo; sat youattack Bonkugon; 
-bind ^enter sat allattack;
+bind !numlock send Aluber /follow Bonkugon; send Keldeo /follow Bonkugon; send Chocopon /follow Bonkugon; send Ecclesia /follow Bonkugon
+bind !enter sat youattack Chocopon; sat youattack Aluber; sat youattack Ecclesia; sat youattack Keldeo; sat youattack Bonkugon; wait 2; send Ecclesia /pet Fight <tid>;
+bind ^enter sat allattack
 bind ^numlock ffo stopall
-bind !^p send Bonkugon /pcmd add Ecclesia; wait 2; send Bonkugon /pcmd add Chocopon; wait 2; send Bonkugon /pcmd add Apollousa; wait 2; send Bonkugon /pcmd add Keldeo; wait 2; send Bonkugon /pcmd add Aluber; wait 2; send @all exec alias; wait 2;send Bonkugon ffogroup
+bind !^p send Bonkugon /pcmd add Ecclesia; wait 2; send Bonkugon /pcmd add Chocopon; wait 2; send Bonkugon /pcmd add Apollousa; wait 2; send Bonkugon /pcmd add Keldeo; wait 2; send Bonkugon /pcmd add Aluber; wait 2; send @all exec alias
 
 bind %m send Chocopon /mount Fenrir; send Bonkugon /mount Fenrir; send Ecclesia /mount Ixion; send Apollousa /mount Byakko; send Keldeo /mount Byakko; send Aluber /mount Byakko;
 bind ~%m send @all send @all /dismount
 
-bind %. wsspam
-bind !numpad2 send Ecclesia /ma Stone V <tid>; wait 1; send Keldeo /ma Stone V <tid>;  
-bind ^numpad2 send Ecclesia /ma Stone IV <tid>; wait 1; send Keldeo /ma Stone IV <tid>; 
-bind !numpad3 send Ecclesia /ma Water V <tid>; wait 1; send Keldeo /ma Water V <tid>;  
-bind ^numpad3 send Ecclesia /ma Water IV <tid>; wait 1; send Keldeo /ma Water IV <tid>; 
-bind !numpad4 send Ecclesia /ma Aero V <tid>;  wait 1; send Keldeo /ma Aero V <tid>; 
-bind ^numpad4 send Ecclesia /ma Aero IV <tid>; wait 1; send Keldeo /ma Aero IV <tid>; 
-bind !numpad5 send Ecclesia /ma Fire V <tid>;  wait 1; send Keldeo /ma Fire V <tid>; 
-bind ^numpad5 send Ecclesia /ma Fire IV <tid>; wait 1; send Keldeo /ma Fire IV <tid>; 
-bind !numpad6 send Ecclesia /ma Blizzard V <tid>; wait 1; send Keldeo /ma Blizzard V <tid>; 
-bind ^numpad6 send Ecclesia /ma Blizzard IV <tid>; wait 1; send Keldeo /ma Blizzard IV <tid>;
-bind !numpad7 send Ecclesia /ma Thunder V <tid>; wait 1; send Keldeo /ma Thunder V <tid>; 
-bind ^numpad7 send Ecclesia /ma Thunder IV <tid>; wait 1; send Keldeo /ma Thunder IV <tid>; 
-
+bind %. wscleave
+bind !numpad2 send Ecclesia /ma Stone V <tid>; 
+bind ^numpad2 send Ecclesia /ma Stone IV <tid>; 
+bind !numpad3 send Ecclesia /ma Water V <tid>;  
+bind ^numpad3 send Ecclesia /ma Water IV <tid>; 
+bind !numpad4 send Ecclesia /ma Aero V <tid>; 
+bind ^numpad4 send Ecclesia /ma Aero IV <tid>; 
+bind !numpad5 send Ecclesia /ma Fire V <tid>; 
+bind ^numpad5 send Ecclesia /ma Fire IV <tid>; 
+bind !numpad6 send Ecclesia /ma Blizzard V <tid>; 
+bind ^numpad6 send Ecclesia /ma Blizzard IV <tid>; 
+bind !numpad7 send Ecclesia /ma Thunder V <tid>; 
+bind ^numpad7 send Ecclesia /ma Thunder IV <tid>; 
 
 bind ~numpad0 send Bonkugon gs c pact sleep
 bind ~numpad1 send Bonkugon gs c pact buffOffense; wait 29; send Bonkugon /p Ward Ready

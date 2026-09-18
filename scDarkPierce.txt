@@ -1,0 +1,1 @@
+send Chocopon /ja Box Step <t>; send Bonkugon /ws Impulse Drive <t>; wait 4; send Keldeo /ws Savage Blade <t>; wait 4; send Chocopon /ws Rudra's Storm <t>; wait 4; send Bonkugon /ws Impulse Drive; wait 4; send Chocopon /ws Rudra's Storm <t>;

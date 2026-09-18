@@ -1,0 +1,1 @@
+send Chocopon htmb; wait 3; send Ecclesia htmb; wait 3; send Bonkugon htmb; wait 3; send Apollousa htmb; wait 3; send Keldeo htmb; wait 3; send Aluber htmb;

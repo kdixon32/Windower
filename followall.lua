@@ -4,7 +4,6 @@ _addon.version = '1.0'
 _addon.commands = {'followall'}
 
 windower.register_event('addon command', function(...)
-    -- Optional: allow manual names: //followall SomeName
     local args = {...}
     local target = args[1]
     if not target or target == '' then

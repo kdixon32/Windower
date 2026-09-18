@@ -1,17 +1,26 @@
 alias sa send @all
 alias off send @all attackoff;
 alias switch send Aluber sat switch <tid>; send Bonkugon sat switch <tid>; send Keldeo sat switch <tid>; send Chocopon sat switch <tid>;
-alias sneak send Apollousa /ja Accession <me>; wait 1; send Apollousa /ma sneak <me>; wait 5; send Apollousa /ja accession <me>; wait 1; send Apollousa /ma invisible <me>
+alias lockon send @others /lockon
+alias allswitch send @others sat switch <tid>;
+alias invis send Apollousa /ja Accession <me>; wait 1; send Apollousa /ma sneak <me>; wait 5; send Apollousa /ja accession <me>; wait 1; send Apollousa /ma invisible <me>
 alias wa send @all warp
 alias shutdown send @all /shutdown
-alias invis send @all cancel 69
-alias snk send @all cancel 71
+alias cancelinvis send @all cancel 69
 alias heal send @all /heal
+alias htmball exec htmball
+alias sendroe exec sendroe
+alias ffogroup ffo setgroup Bonkugon Chocopon Aluber Ecclesia Keldeo
+
 
 alias fullbuff send Chocopon exec fullBuff
 alias elemws send Keldeo /ws Seraph Blade <t>; send Ecclesia /ws Flash Nova <t>; send Chocopon /ws Aeolian Edge <t>; send Aluber /ws Herculean Slash <t>;
-alias wsspam send Ecclesia /ws Hexa Strike <t>; send Aluber /ws Resolution <t>; send Bonkugon /ws Tachi: Fudo <t>; send Chocopon Rudra's Storm <t>; send Keldeo Savage Blade <t>;
-alias altspam send Ecclesia /ws Hexa Strike <t>; send Aluber /ws Resolution <t>; send Bonkugon /ws Impulse Drive <t>; send Chocopon Rudra's Storm <t>; send Keldeo Savage Blade <t>;
+alias wsspam send Ecclesia /ws Hexa Strike <t>; send Aluber /ws Resolution <t>; send Bonkugon /ws Tachi: Fudo <t>; send Chocopon Evisceration <t>; send Keldeo Savage Blade <t>;
+alias wsspam2 send Ecclesia /ws Hexa Strike <t>; send Aluber /ws "Savage Blade" <t>; send Bonkugon /ws Tachi: Fudo <t>; send Chocopon Evisceration <t>; send Keldeo Savage Blade <t>;
+
+alias wsspamPierce send Ecclesia /ws Hexa Strike <t>; send Aluber /ws Resolution <t>; send Bonkugon /ws Impulse Drive <t>; send Chocopon Evisceration <t>; send Keldeo Evisceration <t>;
+alias altspam send Apollousa /ws Savage Blade <t>; send Aluber /ws Resolution <t>; send Bonkugon /ws Tachi: Fudo <t>; send Chocopon Evisceration <t>; send Keldeo Savage Blade <t>;
+alias wscleave send Apollousa /ws aeo <t>; send Aluber /ws Fell Cleave <t>; send Bonkugon /ws aeo <t>; send Chocopon /ws aeo <t>; send Keldeo /ws aeo <t>; send Ecclesia /ws aeo <t>; wait 3; send Ecclesia /bstpet 2 <me> 
 alias spam send Ecclesia /ws Hexa Strike <t>; send Aluber /ws Shockwave <t>; send Chocopon Aeolian Edge <t>; send Keldeo Circle Blade <t>; send Apollousa /ws Earth Crusher <t>;
 alias bonkws send Bonkugon /ws Impulse Drive <t>;
 
@@ -21,8 +30,8 @@ alias ba send Apollousa /ma baraera <me>
 alias bf send Apollousa /ma barfira <me>
 alias bb send Apollousa /ma barblizzara <me>
 alias bt send Apollousa /ma barthundra <me>
-alias bblind send Apollousa /ma barblindara <me>
-alias bamnes send Apollousa /ma baramnesra <me>
+alias bblind send Apollousa /ma barblindra <me>
+alias bamne send Apollousa /ma baramnesra <me>
 alias bsleep send Apollousa /ma barsleepra <me>
 alias bpara send Apollousa /ma barparalyzra <me>
 alias bpetra send Apollousa /ma barpetra <me>
@@ -30,11 +39,15 @@ alias bsilence send Apollousa /ma barsilencera <me>
 alias bsleep send Apollousa /ma barsleepra <me>
 alias bpoison send Apollousa /ma barpoisonra <me>
 alias bvirus send Apollousa /ma barvira <me>
+alias esuna send Apollousa /ma esuna <me>
+alias sublimation send Apollousa /ja Sublimation <me>
 alias penury send Apollousa /ja penury <me>
 alias accession send Apollousa /ja accession <me>
 alias auspice send Apollousa /ma Auspice <me>
 alias str send Apollousa /ma Boost-STR <me>
 alias regen send Apollousa exec regen
+alias lightarts send Apollousa /ja light arts <me>
+
 
 alias emer send Apollousa /ja Benediction <me>; send Aluber /ja Elemental Sforzo <me>
 alias divinep send Apollousa /ja Divine Seal <me>; wait 1.5; /ja Divine Caress <me>; wait 1; /ma Poisona Chocopon
@@ -57,7 +70,7 @@ alias erase6 send Apollousa /ma Erase Aluber
 alias temper send Keldeo /ma temper II <me>
 alias enblizz send Keldeo /ma Enblizzard <me>
 alias enfire send Keldeo /ma Enfire <me>
-alias enstone send Keldeo /ma Enstone <me>
+alias enstone send Keldeo /ma Enstone <me>33
 alias enthunder send Keldeo /ma Enthunder <me>
 alias enaero send Keldeo /ma Enaero <me>
 alias enwater send Keldeo /ma Enwater <me>
@@ -73,6 +86,7 @@ alias haste3 send Keldeo /ma Haste II Bonkugon
 alias haste4 send Keldeo /ma Haste II Apollousa
 alias haste5 send Keldeo /ma Haste II <me>
 alias haste6 send Keldeo /ma Haste II Aluber
+alias flurry send Keldeo /ma Flurry II Apollousa
 alias phalanx1 send Keldeo /ma Phalanx II Chocopon
 alias phalanx2 send Keldeo /ma Phalanx II Ecclesia
 alias phalanx3 send Keldeo /ma Phalanx II Bonkugon
@@ -83,6 +97,13 @@ alias kdispel send Keldeo /ma Dispel <tid>
 alias silence send Keldeo /ma Silence <tid>
 alias rdmbuff send Keldeo exec rdmBuff
 alias composure send Keldeo /ja Composure <me>
+alias qdebuff send Keldeo exec rdmDebuffquick
+alias distract send Keldeo /ma Distract III <tid>
+alias frazzle send Keldeo /ma Frazzle II <tid>; wait 4; send Keldeo /ma Frazzle III <tid>
+alias slow send Keldeo /ma Slow II <tid>
+alias paralyze send Keldeo /ma Paralyze II <tid>
+alias blind send Keldeo /ma Blind II <tid>
+alias addle send Keldeo /ma Addle II <tid>
 
  
 alias smn2hr send Bonkugon /ja Astral Flow <me>; wait 1; send Bonkugon /ja Astral Conduit 
@@ -90,7 +111,7 @@ alias apogee send Bonkugon /ja Apogee <me>
 alias bconvert send Bonkugon /ja Convert <me>; wait 1; send Bonkugon /ma Cure IV <me>; send Apollousa /ma Cure IV Bonkugon
 alias carbuncle send bonkugon gs c carbuncle
 alias titan send bonkugon gs c titan
-alias leviathan send bonkugon //gs c garuda
+alias leviathan send bonkugon gs c leviathan
 alias garuda send bonkugon gs c garuda
 alias ifrit send bonkugon gs c ifrit
 alias shiva send bonkugon gs c shiva
@@ -125,26 +146,38 @@ alias deflight send Aluber exec defLight
 alias defdark send ALuber exec defDark
 alias defice send Aluber exec defIce
 alias defthunder send Aluber exec defThunder
+alias defrecast send Aluber /ma Phalanx <me>; wait 6; send Aluber input /ma Cocoon <me>;
 
 alias sleepga send Ecclesia /ma Sleepga <tid>
 alias sleep send Ecclesia /ma Sleep II <tid>
 alias aspir send Ecclesia /ma Aspir III <tid>
+alias stun send Ecclesia /ma stun <tid>
+alias burn send Ecclesia /ma Burn <tid>
 alias indivex send Ecclesia /ma Indi-Vex <me>
 alias edispel send Ecclesia /ma Dispel <tid>
 alias fury send Ecclesia /ma Indi-Fury <me>
 alias frailty send Ecclesia /ma Geo-Frailty <tid>
+alias geostr send Ecclesia /ma Geo-STR <me>
+alias barrier send Ecclesia /ma indi-Barrier <me>
+alias entAttunement send Ecclesia /ja Entrust <me>; wait 2; send Ecclesia /ma Indi-Attunement Bonkugon
+alias entBarrier send Ecclesia /ja Entrust <me>; wait 2; send Ecclesia /ma Indi-Barrier Bonkugon
+alias entPrecision send Ecclesia /ja Entrust <me>; wait 2; send Ecclesia /ma Indi-Precision Apollousa
+alias radialarcana send Ecclesia /ja Radial Arcana <me>
+alias mendinghalation send Ecclesia /ja Mending Halation <me>
+alias fc send Ecclesia /ja Full Circle <me>
+
 
 alias hail send Apollousa /ma hailstorm Ecclesia
 alias aurora send Apollousa /ma aurorastorm <me>
 
 
-alias ballad2 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Mage's Ballad III Ecclesia; wait 4; send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Mage's Ballad II Ecclesia
-alias ballad3 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Mage's Ballad III Bonkugon
-alias ballad4 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Mage's Ballad III Apollousa; wait 4; send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Mage's Ballad II Apollousa
-alias ballad5 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Mage's Ballad III Keldeo
-alias ballad6 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Mage's Ballad III Aluber; wait 4; send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Knight's Minne IV Aluber
-alias minne6 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Knight's Minne IV Aluber
-alias intsong2 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon Learned Etude Ecclesia
+alias ballad2 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Mage's Ballad III Ecclesia; wait 4; send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Mage's Ballad II Ecclesia
+alias ballad3 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Mage's Ballad III Bonkugon
+alias ballad4 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Mage's Ballad III Apollousa; wait 4; send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Mage's Ballad II Apollousa
+alias ballad5 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Mage's Ballad III Keldeo
+alias ballad6 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Mage's Ballad III Aluber; wait 4; send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Knight's Minne IV Aluber
+alias minne6 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Knight's Minne IV Aluber
+alias intsong2 send Chocopon /ja Pianissimo <me>; wait 1; send Chocopon /ma Learned Etude Ecclesia
 alias lightcarol send Chocopon /ma Light Carol II <me>
 alias darkcarol send Chocopon /ma Dark Carol II <me>
 alias earthcarol send Chocopon /ma Earth Carol II <me>
@@ -153,3 +186,15 @@ alias watercarol send Chocopon /ma Water Carol II <me>
 alias thundercarol send Chocopon /ma Thunder Carol II <me>
 alias icecarol send Chocopon /ma Ice Carol II <me>
 alias firecarol send Chocopon /ma Fire Carol II <me>
+
+alias pan1 send Chocopon /item Panacea <me>
+alias pan2 send Ecclesia /item Panacea <me>
+alias pan3 send Bonkugon /item Panacea <me>
+alias pan4 send Apollousa /item Panacea <me>
+alias pan5 send Keldeo /item Panacea <me>
+alias pan6 send Aluber /item Panacea <me>
+
+alias chaos send @cor /ja Chaos Roll <me>
+alias samurai send @cor /ja Samurai Roll <me>
+alias bolters send @cor /ja Bolter's Roll <me>
+alias du send @cor /ja Double Up <me>

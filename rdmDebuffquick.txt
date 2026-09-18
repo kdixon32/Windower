@@ -1,1 +1,1 @@
-input /ma Dia III <t>; wait 4; input /ma distract III <t>; 
+input /ma Frazzle III; wait 4; input /ma distract III <t>; 

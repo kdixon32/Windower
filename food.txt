@@ -1,1 +1,1 @@
-send Ecclesia /item \"Chocolate Crepe\" <me>; send Aluber /item \"Black Curry Bun\" <me>; send Bonkugon /item \"Sole Sushi\" <me>; send Keldeo /item \"Rolanberry Daifuku\" <me>; send Roxion /item \"Squid Sushi\" <me>; send Apollousa /item \"Rustic Fish\" <me>
+send Ecclesia /item \"Seafood Gratin\" <me>; send Aluber /item \"Miso Ramen\" <me>; send Bonkugon /item \"Popo. con Queso\" <me>; send Keldeo /item \"Popo. con Queso\" <me>; send Chocopon /item \"Popo. con Queso\" <me>; send Apollousa /item \"Seafood Gratin\" <me>

@@ -1,1 +1,1 @@
-input /ja Accession <me>; wait 1; input /ma Regen IV Aluber
+input /ja Accession <me>; wait 2; input /ma Regen IV Aluber

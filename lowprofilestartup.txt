@@ -1,0 +1,2 @@
+lua unload xivparty
+lua unload debuffed

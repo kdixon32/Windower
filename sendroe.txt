@@ -1,0 +1,11 @@
+input /echo loading roe
+send @all  lua r roe
+wait 2
+input /echo saving set monthly
+roe save monthly
+wait 2
+input /echo reloading roe
+send @all lua r roe
+wait 2
+input /echo setting monthly
+send @all  roe set monthly 
